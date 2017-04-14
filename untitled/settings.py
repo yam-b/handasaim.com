@@ -49,11 +49,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'untitled.urls'
-
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'handaschedule/templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -119,5 +119,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
 ALLOWED_HOSTS = ['127.0.0.1','.pythonanywhere.com','localhost']

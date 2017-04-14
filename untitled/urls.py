@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from handaschedule import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include('handaschedule.urls')),
+    url(r'',views.post_list),
 ]

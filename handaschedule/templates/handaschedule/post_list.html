@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Handaschedule</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="{% static 'css/handaschedule.css' %}">
+</head>
+<body>
+<div>
+    <h1><a href="/">Handaschedule Blog</a></h1>
+</div>
+
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+<h1>Look here:</h1>
+<table style="width:100%">
+{%  for ite in lis %}
+    <tr>
+        {% for it in ite %}
+            <td>{{ it }}</td>
+        {%  endfor %}
+    </tr>
+{% endfor %}
+</table>
+<div class="col-lg-2">
+<button type="button" class="btn btn-success btn-lg">
+    הורד מערכת
+    <span class="glyphicon glyphicon-star"></span>
+</button>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</body>
+</html>
