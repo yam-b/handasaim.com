@@ -1,37 +1,42 @@
-from django.shortcuts import render
-from .models import Post
-from django.utils import timezone
-from bs4 import BeautifulSoup as bs
+# -*- coding: utf-8 -*-
 import pandas as pd
 import requests
-from django.http import HttpResponse
-from openpyxl import load_workbook
+from bs4 import BeautifulSoup as bs
+from django.shortcuts import render
+from django.utils import timezone
 
-def get_webpage(url):
-	return requests.get(url)
+from .models import Post
 
-def get_links(response):
-	soup = bs(response.content,'lxml')
-	marquee = soup.find('marquee')
-	links = marquee.find_all('a')
-	return links
+URL = 'http://handasaim.co.il'
+SUBTEXT = u'לוח'
+UP_CUT = 3
+LEFT_CUT = 3
+DEFAULT_INFO = ''
 
-def open_file(file_url):
-    data = file_url
-    xl = pd.ExcelFile(data)
-    sheet1 = xl.parse(0)
-    column = sheet1.iloc[:,2].real
-    df = pd.read_excel(data, sheetname=0)
-    return [sheet1.iloc[:,i].real[3:] for i in range(len(df.columns))]
 
-def cool():
-    response = get_webpage('http://handasaim.co.il/')
-    #response = json.load(response)['return']
-    links= get_links(response)
-    url=links[0].get('href').strip()
-    c = open_file(url)
-    return c
+def b(link):
+    return [i for i in bs(requests.get(link).content, 'lxml').find('marquee').find_all('b') if SUBTEXT in i.text][0]
+
+
+def to_table(url):
+    xl = pd.ExcelFile(url)
+    sheet = xl.parse(0)
+    df = pd.read_excel(url, sheetname=0)
+    return [sheet.iloc[i, LEFT_CUT:] for i in range(UP_CUT, len(df.index))]
+
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'handaschedule/post_list.html', {'posts': posts, 'lis': cool()})
+    title = b(URL).text.strip()
+    try:
+        info = b(URL).next_sibling.strip()
+    except:
+        info = DEFAULT_INFO
+    link = b(URL).find_next_sibling('a')['href'].strip()
+    time = b(URL).find_previous_sibling('sup').text[1:-1]
+    try:
+        table = to_table(link)
+    except:
+        table = []
+    return render(request, 'handaschedule/post_list.html',
+                  {'posts': posts, 'title': title, 'info': info, 'link': link, 'time': time, 'table': table})
