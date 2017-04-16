@@ -48,12 +48,13 @@ def to_heb_month(month):
 def index(request):
     dude_error = 0
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    local = os.path.join(BASE_DIR, 'handaschedule/schedule.xlsx')
     try:
         title = b(URL).text.strip()
         link = b(URL).find_next_sibling('a')['href'].strip()
         time = b(URL).find_previous_sibling('sup').text[1:-1]
         time = time[:2] + u' ב' + to_heb_month(time[3:5])
-        table = to_table(link)  # or to_table(local)
+        table = to_table(local)  # ONLINE: to_table(link) OFFLINE: to_table(local)
     except:
         table = []
         title = 'מערכת שעות'
