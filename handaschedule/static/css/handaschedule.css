@@ -17,14 +17,6 @@ a:hover {
     width: 100%;
 }
 
-/*td {
-    border: 1px solid #f5f5f5;
-}*/
-
-.space-sensitive {
-    white-space: pre;
-}
-
 .glyphicon {
     vertical-align: middle;
 }
