@@ -4,7 +4,7 @@ html, body {
 
 body {
     font-family: 'Alef', sans-serif;
-    cursor: url('Pointer.cur'), auto;
+    cursor: url('cursor/Pointer.cur'), auto;
     padding-top: 67px;
 }
 
@@ -36,7 +36,7 @@ body {
 }
 
 a:hover {
-    cursor: url('Link Select.cur'), pointer;
+    cursor: url('cursor/Link Select.cur'), pointer;
 }
 
 .not-hebrew {

@@ -45,7 +45,7 @@ def to_heb_month(month):
     }[month]
 
 
-def post_list(request):
+def index(request):
     dude_error = 0
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     try:
@@ -65,6 +65,6 @@ def post_list(request):
     except:
         info = DEFAULT_INFO
     local = os.path.join(BASE_DIR, 'handaschedule/schedule.xlsx')
-    return render(request, 'handaschedule/post_list.html',
+    return render(request, 'handaschedule/index.html',
                   {'posts': posts, 'url': URL, 'title': title, 'info': info, 'link': link, 'time': time, 'table': table,
                    'error': dude_error})
