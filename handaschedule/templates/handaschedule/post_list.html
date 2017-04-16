@@ -33,11 +33,14 @@
             <p style='font-weight:normal;color:initial'>{{ info }} </p>
         </div>
         <span>
-            <a id='test' class='btn btn-default btn-md pull-left disabled' style='cursor:not-allowed'>
-                <span class='glyphicon glyphicon-triangle-bottom glyphicon-sm'></span>
+            <div class='btn-group pull-left'>
+                <a class='btn btn-default btn-md' href='{{ url }}'>לאתר</a>
+                <a id='test' class='btn btn-default btn-md disabled' style='cursor:not-allowed'>
+                    <span class='glyphicon glyphicon-triangle-bottom glyphicon-sm'></span>
                 מבזקי
                 חדשות
-            </a>
+                </a>
+            </div>
             {% if error %}
                 <a id='error' class='btn btn-success btn-md pull-left disabled'>הורדה</a>
             {% else %}
@@ -52,7 +55,7 @@
             <div class='alert alert-danger' style='direction:rtl'>
                 <button type='button' class='close pull-left' data-dismiss='alert'>&times;</button>
                 <strong>טוב, זה מביך...</strong>
-                לא נמצאה מערכת ב<a href='http://handasaim.co.il' class='alert-link' target='_blank'>אתר בית הספר</a>.
+                לא נמצאה מערכת ב<a href='{{ url }}' class='alert-link' target='_blank'>אתר בית הספר</a>.
                 אם המערכת מופיעה באתר,
                 <a href='#' class='alert-link'>תודיעו לי</a>.
             </div>

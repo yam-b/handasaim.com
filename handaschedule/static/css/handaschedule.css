@@ -88,3 +88,8 @@ a:hover {
 .tooltip {
     position: absolute;
 }
+
+.btn-group .btn {
+    margin-left: 0;
+    margin-right: 0;
+}

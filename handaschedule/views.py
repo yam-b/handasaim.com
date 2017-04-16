@@ -56,7 +56,7 @@ def post_list(request):
         table = to_table(link)  # or to_table(local)
     except:
         table = []
-        title = 'אין מערכת'
+        title = 'מערכת שעות'
         link = '#'
         time = datetime.date.today().strftime('%d ') + u'ב' + to_heb_month(datetime.date.today().strftime('%m'))
         dude_error = 1
@@ -66,5 +66,5 @@ def post_list(request):
         info = DEFAULT_INFO
     local = os.path.join(BASE_DIR, 'handaschedule/schedule.xlsx')
     return render(request, 'handaschedule/post_list.html',
-                  {'posts': posts, 'title': title, 'info': info, 'link': link, 'time': time, 'table': table,
+                  {'posts': posts, 'url': URL, 'title': title, 'info': info, 'link': link, 'time': time, 'table': table,
                    'error': dude_error})
