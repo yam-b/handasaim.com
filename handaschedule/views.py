@@ -12,7 +12,7 @@ from untitled.settings import BASE_DIR
 from .models import Post
 
 URL = 'http://handasaim.co.il'
-TEXT_TO_FIND = u'לוח'
+TEXT_TO_FIND = u'מערכת שעות'
 UP_CUT = 0
 LEFT_CUT = 1
 DEFAULT_INFO = u''
