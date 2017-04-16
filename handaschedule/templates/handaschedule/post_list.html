@@ -1,11 +1,12 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>מערכת שעות {{ time|slice:":-3" }}</title>
+    <!--title>מערכת שעות {{ time|slice:":-3" }}</title-->
+    <title>{{ title }}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
     <!--[if lt IE 9]>
@@ -19,97 +20,101 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="panel-heading text-right navbar-fixed-top">
-    <div class="container">
-        <div style="display:inline-block">
-            <h4 style="display:inline;font-family:'Alef', sans-serif;">
-                <a href="{{ link }}" target='{{ error|yesno:',_blank' }}'
-                   style='{{ error|yesno:'text-decoration:none;cursor:not-allowed,' }}'>{{ title }}</a>
+<div class='panel-heading text-right navbar-fixed-top'>
+    <div class='container'>
+        <div style='display:inline-block'>
+            <h4 style='display:inline;font-family:"Alef", sans-serif;'>
+                {% if error %}{{ title }}
+                {% else %}
+                    <a href='{{ link }}' target='_blank'>{{ title }}</a>
+                {% endif %}
             </h4>·
-            <span style="font-weight:normal;color:#a1a4a5">{{ time }}</span>
-            <p style="font-weight:normal;color:initial">{{ info }} </p>
+            <span style='font-weight:normal;color:#a1a4a5'>{{ time }}</span>
+            <p style='font-weight:normal;color:initial'>{{ info }} </p>
         </div>
         <span>
-            <a id="test" class="btn btn-default btn-md pull-left disabled" style="cursor:not-allowed">
-                <span class="glyphicon glyphicon-triangle-bottom glyphicon-sm"></span>
+            <a id='test' class='btn btn-default btn-md pull-left disabled' style='cursor:not-allowed'>
+                <span class='glyphicon glyphicon-triangle-bottom glyphicon-sm'></span>
                 מבזקי
                 חדשות
             </a>
             {% if error %}
-                <a id="error" class="btn btn-success btn-md pull-left disabled">הורדה</a>
+                <a id='error' class='btn btn-success btn-md pull-left disabled'>הורדה</a>
             {% else %}
-                <a href="{{ link }}" class="btn btn-success btn-md pull-left" download>הורדה</a>
+                <a href='{{ link }}' class='btn btn-success btn-md pull-left' download>הורדה</a>
             {% endif %}
         </span>
     </div>
 </div>
-<div class='container text-right'>
-    {% if error %}
-        <div class='alert alert-danger' style='direction:rtl'>
-            <strong>טוב, זה מביך...</strong>
-            לא נמצאה מערכת ב<a href='http://handasaim.co.il' class='alert-link' target='_blank'>אתר בית הספר</a>.
-            אם המערכת מופיעה באתר,
-            <a href='#' class='alert-link'>תודיעו לי</a>.
-            <button type='button' class='close pull-left' data-dismiss='alert'>&times;</button>
-        </div>
-        <h1 class='text-center'>¯\_(ツ)_/¯</h1>
-    {% else %}
-        <div class='table-responsive'>
-            <table class='table table-hover'>
-                {% for row in table %}
-                    <tr>
-                        {% if forloop.counter == 1 %}
-                            <th></th>
-                            {% for item in row %}
-                                <th style='min-width:80px' class='text-right'>
-                                    {% if 'nan' not in item %}
-                                        {{ item }}
-                                    {% endif %}
-                                </th>
-                            {% endfor %}
-                        {% else %}
-                            <td><b>{{ forloop.counter|add:'-2' }}</b></td>
-                            {% for item in row %}
-                                <td style="min-width:80px">
-                                    {% if 'nan' not in item %}
-                                        {{ item }}
-                                    {% endif %}
-                                </td>
-                            {% endfor %}
-                        {% endif %}
-                    </tr>
-                {% endfor %}
-            </table>
-        </div>
-    {% endif %}
+<div id='wrap'>
+    <div id='main' class='container text-right'>
+        {% if error %}
+            <div class='alert alert-danger' style='direction:rtl'>
+                <button type='button' class='close pull-left' data-dismiss='alert'>&times;</button>
+                <strong>טוב, זה מביך...</strong>
+                לא נמצאה מערכת ב<a href='http://handasaim.co.il' class='alert-link' target='_blank'>אתר בית הספר</a>.
+                אם המערכת מופיעה באתר,
+                <a href='#' class='alert-link'>תודיעו לי</a>.
+            </div>
+            <h1 class='text-center'>¯\_(ツ)_/¯</h1>
+        {% else %}
+            <div class='table-responsive'>
+                <table class='table table-hover'>
+                    {% for row in table %}
+                        <tr>
+                            {% if forloop.counter == 1 %}
+                                <th></th>
+                                {% for item in row %}
+                                    <th style='min-width:80px' class='text-right'>
+                                        {% if 'nan' not in item %}
+                                            {{ item }}
+                                        {% endif %}
+                                    </th>
+                                {% endfor %}
+                            {% else %}
+                                <td><b>{{ forloop.counter|add:'-2' }}</b></td>
+                                {% for item in row %}
+                                    <td style='min-width:80px'>
+                                        {% if 'nan' not in item %}
+                                            {{ item }}
+                                        {% endif %}
+                                    </td>
+                                {% endfor %}
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+    </div>
 </div>
-<footer class="container-fluid text-center navbar-fixed-bottom">
-    <a class="github-button" href="https://github.com/yam-b" data-style="mega" data-count-href="/yam-b/followers"
-       data-count-api="/users/yam-b#followers" data-count-aria-label="# followers on GitHub"
-       aria-label="Follow @yam-b on GitHub">Follow @yam-b</a>
-    <p class="not-hebrew">No rights reserved &nbsp;¯\_(ツ)_/¯</p>
+<footer class='footer text-center'>
+    <a class='github-button' href='https://github.com/yam-b' data-style='mega' data-count-href='/yam-b/followers'
+       data-count-api='/users/yam-b#followers' data-count-aria-label='# followers on GitHub'
+       aria-label='Follow @yam-b on GitHub'>Follow @yam-b</a>
+    <p class='not-hebrew'>No rights reserved &nbsp;¯\_(ツ)_/¯</p>
 </footer>
-<i id="img-tooltip" class="tooltip" data-toggle="tooltip1" data-placement="right" title="בקרוב" data-animation="false"
-   data-trigger="manual"></i>
-<i id="err-tooltip" class="tooltip" data-toggle="tooltip2" data-placement="right" title="אין מערכת"
-   data-animation="false"
-   data-trigger="manual"></i>
+<i id='img-tooltip' class='tooltip' data-toggle='tooltip1' data-placement='right' title='בקרוב' data-animation='false'
+   data-trigger='manual'></i>
+<i id='err-tooltip' class='tooltip' data-toggle='tooltip2' data-placement='right' title='אין מערכת'
+   data-animation='false'
+   data-trigger='manual'></i>
 <script>
-    $("#test").on('mousemove', function (e) {
+    $('#test').on('mousemove', function (e) {
         $("#img-tooltip").css({top: e.pageY, left: e.pageX});
         $('[data-toggle="tooltip1"]').tooltip('show')
     });
 
-    $("#test").on('mouseleave', function (e) {
+    $('#test').on('mouseleave', function (e) {
         $('[data-toggle="tooltip1"]').tooltip('hide')
     });
 
-    $("#error").on('mousemove', function (e) {
-        $("#err-tooltip").css({top: e.pageY, left: e.pageX});
+    $('#error').on('mousemove', function (e) {
+        $('#err-tooltip').css({top: e.pageY, left: e.pageX});
         $('[data-toggle="tooltip2"]').tooltip('show')
     });
 
-    $("#error").on('mouseleave', function (e) {
+    $('#error').on('mouseleave', function (e) {
         $('[data-toggle="tooltip2"]').tooltip('hide')
     })
 </script>

@@ -12,7 +12,7 @@ from untitled.settings import BASE_DIR
 from .models import Post
 
 URL = 'http://handasaim.co.il'
-TEXT_TO_FIND = u'קקי'
+TEXT_TO_FIND = u'לוח'
 UP_CUT = 0
 LEFT_CUT = 1
 DEFAULT_INFO = u''
@@ -32,7 +32,7 @@ def to_heb_month(month):
     return {
         '01': u'ינואר',
         '02': u'פברואר',
-        '03': u'מרס',
+        '03': u'מרץ',
         '04': u'אפריל',
         '05': u'מאי',
         '06': u'יוני',
@@ -44,6 +44,7 @@ def to_heb_month(month):
         '12': u'דצמבר',
     }[month]
 
+
 def post_list(request):
     dude_error = 0
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -51,12 +52,13 @@ def post_list(request):
         title = b(URL).text.strip()
         link = b(URL).find_next_sibling('a')['href'].strip()
         time = b(URL).find_previous_sibling('sup').text[1:-1]
+        time = time[:2] + u' ב' + to_heb_month(time[3:5])
         table = to_table(link)  # or to_table(local)
     except:
         table = []
         title = 'אין מערכת'
         link = '#'
-        time = to_heb_month(datetime.date.today().strftime('%m')) + datetime.date.today().strftime(' %d')
+        time = datetime.date.today().strftime('%d ') + u'ב' + to_heb_month(datetime.date.today().strftime('%m'))
         dude_error = 1
     try:
         info = b(URL).next_sibling.strip()
