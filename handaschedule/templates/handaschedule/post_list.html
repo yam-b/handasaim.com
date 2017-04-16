@@ -5,56 +5,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>מערכת שעות {{ time }}</title>
-    <!-- Bootstrap -->
+    <title>מערכת שעות {{ time|slice:":-3" }}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
     <link rel="stylesheet" href="{% static 'css/handaschedule.css' %}">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-<div class="container text-right">
-    <div class="jumbotron">
-        <h1 class="page-header">{{ title }}
-            <small>{{ time }}</small>
-        </h1>
-        <p>
-            <a class="btn btn-default btn-lg pull-left">
-                <span class="glyphicon glyphicon-triangle-bottom" style="vertical-align: middle;font-size:60%"></span>
-                מבזקי
-                חדשות
-            </a>
-            <a href="{{ link }}" class="btn btn-success btn-lg pull-left" style="margin-left:5px" download>הורדה</a>
-            {{ info }}
-        </p>
+<div class="panel-heading text-right clearfix">
+    <div class="container">
+    <span style="vertical-align: middle;">
+        <div style="display:inline-block"><h4 style="font-weight: bold;display:inline"><a href="{{ link }}"
+                                                                                          target="_blank">{{ title }}</a></h4>
+        <p style="font-weight: normal;color:#a1a4a5">פורסם ב-{{ time }}</p></div>
+        <a class="btn btn-default btn-md pull-left disabled" style="cursor:not-allowed" title="בקרוב..;)">
+            <span class="glyphicon glyphicon-triangle-bottom glyphicon-sm"></span>
+            מבזקי
+            חדשות
+        </a>
+        <a href="{{ link }}" class="btn btn-success btn-md pull-left" download>הורדה</a>
+        {{ info }}
+    </span>
     </div>
-    <table style="width:100%">
-        {% for row in table %}
-            <tr>
-                {% for item in row %}
-                    <td>{{ item }}</td>
-                {% endfor %}
-            </tr>
-        {% endfor %}
-    </table>
-    <!--div class="row" style="margin-top:30px;">
-        <div class="col-6 text-center">
-            <form method="get" action="{{ link }}">
-                <button type="button" class="btn btn-default btn-lg">
-                    <span class="glyphicon glyphicon-triangle-bottom"
-                          style="vertical-align:middle; font-size:60%"></span> מבזקי חדשות
-                </button>
-                <button type="submit" class="btn btn-success btn-lg" formtarget="_blank">הורדה</button>
-            </form>
-        </div>
-    </div-->
 </div>
-<footer class="container-fluid text-center"><p>No rights reserved @yam-b</p></footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<div class="container text-right">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            {% for row in table %}
+                <tr>
+                    {% if forloop.counter == 1 %}
+                        {% for item in row %}
+                            <th style="min-width:80px" class="text-right">
+                                {% if 'nan' not in item %}
+                                    {{ item }}
+                                {% endif %}
+                            </th>
+                        {% endfor %}
+                    {% else %}
+                        {% for item in row %}
+                            <td style="min-width:80px">
+                                {% if 'nan' not in item %}
+                                    {{ item }}
+                                {% endif %}
+                            </td>
+                        {% endfor %}
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<footer class="container-fluid text-center">
+    <a class="github-button" href="https://github.com/yam-b" data-style="mega" data-count-href="/yam-b/followers"
+       data-count-api="/users/yam-b#followers" data-count-aria-label="# followers on GitHub"
+       aria-label="Follow @yam-b on GitHub">Follow @yam-b</a>
+    <p class="p p-space-sensitive">No rights reserved ¯\_(ツ)_/¯</p>
+</footer>
 </body>
 </html>

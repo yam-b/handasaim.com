@@ -1,19 +1,14 @@
 # -*- coding: utf-8 -*-
-import os
-
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup as bs
 from django.shortcuts import render
 from django.utils import timezone
 
-from untitled.settings import BASE_DIR
-from .models import Post
-
 URL = 'http://handasaim.co.il'
 SUBTEXT = u'לוח'
-UP_CUT = 0
-LEFT_CUT = 1
+UP_CUT = 3
+LEFT_CUT = 3
 DEFAULT_INFO = ''
 
 
@@ -33,8 +28,15 @@ def post_list(request):
         info = b(URL).next_sibling.strip()
     except:
         info = DEFAULT_INFO
-    link = b(URL).find_next_sibling('a')['href'].strip()
+    # link = b(URL).find_next_sibling('a')['href'].strip()
+    link = 'schedule.xlsx'
     time = b(URL).find_previous_sibling('sup').text[1:-1]
-    table = to_table(os.path.join(BASE_DIR, 'handaschedule/schedule.xlsx'))
+    try:
+        table = to_table(link)
+    except:
+        table = []
     return render(request, 'handaschedule/post_list.html',
                   {'posts': posts, 'title': title, 'info': info, 'link': link, 'time': time, 'table': table})
+
+
+print to_table('schedule.xlsx')
