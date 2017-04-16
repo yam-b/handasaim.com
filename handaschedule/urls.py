@@ -3,5 +3,5 @@ from django.conf.urls import url
 from . import views
 
 urlpattern = [
-    url(r'^$', views.index, name='post_list'),
+    url(r'^$', views.index, name='index'),
 ]
