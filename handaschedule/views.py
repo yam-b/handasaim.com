@@ -14,7 +14,7 @@ URL = 'http://handasaim.co.il'
 SUBTEXT = u'לוח'
 UP_CUT = 0
 LEFT_CUT = 1
-DEFAULT_INFO = ''
+DEFAULT_INFO = u''
 
 
 def b(link):
