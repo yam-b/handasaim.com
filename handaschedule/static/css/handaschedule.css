@@ -3,6 +3,20 @@ body {
     cursor: url('Pointer.cur'), auto;
 }
 
+body {
+    padding-top: 67px;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 110px;
+    }
+}
+
+::selection {
+    background: #acd7fc;
+}
+
 a:hover {
     cursor: url('Link Select.cur'), pointer;
 }
@@ -45,8 +59,7 @@ a:hover {
 }
 
 .panel-heading {
-    background-color: #fafbfc;
-    background-image: none;
+    background: #fafbfc none;
     margin-bottom: 10px;
     border-bottom-color: #e1e4e5;
 }
