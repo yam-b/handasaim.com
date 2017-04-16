@@ -45,3 +45,7 @@
     margin-bottom: 10px;
     border-bottom-color: #e1e4e5;
 }
+
+#img-tooltip {
+    position: absolute;
+}
