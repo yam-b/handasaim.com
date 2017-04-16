@@ -11,15 +11,15 @@ from untitled.settings import BASE_DIR
 from .models import Post
 
 URL = 'http://handasaim.co.il'
-TEXT_TO_FIND = u'לוח'
+TEXT_TO_FIND = u'מערכת שעות'
 UP_CUT = 0
 LEFT_CUT = 1
 DEFAULT_INFO = u''
 
 
 def b(link):
-    return [i for i in bs(requests.get(link).content, 'lxml').find('marquee').find_all('b') if TEXT_TO_FIND in i.text][
-        0]
+    news = bs(requests.get(link).content, 'lxml').find('marquee')
+    return [i for i in news.find_all('b') if TEXT_TO_FIND in i.text][0]
 
 
 def to_table(url):
