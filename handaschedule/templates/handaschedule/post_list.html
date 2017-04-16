@@ -19,13 +19,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="panel-heading text-right clearfix">
+<div class="panel-heading text-right">
     <div class="container">
-    <span style="vertical-align: middle;">
-        <div style="display:inline-block"><h3
-                style="font-weight: bold;display:inline;font-family:'Alef', sans-serif;"><a href="{{ link }}"
-                                                                                            target="_blank">{{ title }}</a></h3>
-        <p style="font-weight: normal;color:#a1a4a5">פורסם ב-{{ time }}</p></div>
+        <div style="display:inline-block">
+            <h3
+                    style="display:inline;font-family:'Alef', sans-serif;"><a href="{{ link }}"
+                                                                              target="_blank">{{ title }}</a></h3>
+            <p class="p-light" style="font-weight:normal">פורסם ב-{{ time }}</p>
+        </div>
         <a id="test" class="btn btn-default btn-md pull-left disabled" style="cursor:not-allowed">
             <span class="glyphicon glyphicon-triangle-bottom glyphicon-sm"></span>
             מבזקי
@@ -33,7 +34,6 @@
         </a>
         <a href="{{ link }}" class="btn btn-success btn-md pull-left" download>הורדה</a>
         {{ info }}
-    </span>
     </div>
 </div>
 <i id="img-tooltip" data-toggle="tooltip" data-placement="right" title="בקרוב" data-animation="false"
@@ -69,7 +69,7 @@
     <a class="github-button" href="https://github.com/yam-b" data-style="mega" data-count-href="/yam-b/followers"
        data-count-api="/users/yam-b#followers" data-count-aria-label="# followers on GitHub"
        aria-label="Follow @yam-b on GitHub">Follow @yam-b</a>
-    <p class="not-hebrew">No rights reserved&nbsp; ¯\_(ツ)_/¯</p>
+    <p class="not-hebrew">No rights reserved &nbsp;¯\_(ツ)_/¯</p>
 </footer>
 <script>
     $("#test").on('mousemove', function (e) {
