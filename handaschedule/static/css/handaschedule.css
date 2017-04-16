@@ -64,6 +64,6 @@ a:hover {
 .p-light {
 }
 
-#img-tooltip {
+.tooltip {
     position: absolute;
 }
