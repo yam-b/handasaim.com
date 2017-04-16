@@ -1,3 +1,16 @@
+body {
+    font-family: 'Alef', sans-serif;
+    cursor: url('Pointer.cur'), auto;
+}
+
+a:hover {
+    cursor: url('Link Select.cur'), pointer;
+}
+
+.not-hebrew {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
 .table {
     border-collapse: collapse;
     margin-bottom: 0;

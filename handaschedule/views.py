@@ -36,6 +36,6 @@ def post_list(request):
     link = b(URL).find_next_sibling('a')['href'].strip()
     time = b(URL).find_previous_sibling('sup').text[1:-1]
     local = os.path.join(BASE_DIR, 'handaschedule/schedule.xlsx')
-    table = to_table(link)  # or to_table(local)
+    table = to_table(local)  # or to_table(local)
     return render(request, 'handaschedule/post_list.html',
                   {'posts': posts, 'title': title, 'info': info, 'link': link, 'time': time, 'table': table})
