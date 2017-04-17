@@ -14,12 +14,12 @@ body {
 
 #main {
     overflow: auto;
-    padding-bottom: 150px; /* this needs to be bigger than footer height*/
+    padding-bottom: 150px;
 }
 
 .footer {
     position: relative;
-    margin-top: -150px; /* negative value of footer height */
+    margin-top: -150px;
     height: 150px;
     clear: both;
     padding-top: 20px;
@@ -47,6 +47,10 @@ a:hover {
     border-collapse: collapse;
     margin-bottom: 0;
     width: 100%;
+}
+
+td, th {
+    min-width: 80px;
 }
 
 .glyphicon {

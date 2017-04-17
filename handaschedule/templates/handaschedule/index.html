@@ -19,8 +19,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-<body dir='rtl' id='bootstrap-overrides'>
-<div class='panel-heading text-right navbar-fixed-top'>
+<body dir='rtl' id='bootstrap-overrides' class='text-right'>
+<div class='panel-heading navbar-fixed-top'>
     <div class='container'>
         <div style='display:inline-block'>
             <h4 style='display:inline;font-family:"Alef", sans-serif;'>
@@ -50,7 +50,7 @@
     </div>
 </div>
 <div id='wrap'>
-    <div id='main' class='container text-right'>
+    <div id='main' class='container'>
         {% if error %}
             <div class='alert alert-danger' style='direction:rtl'>
                 <button type='button' class='close pull-left' data-dismiss='alert'>&times;</button>
@@ -69,7 +69,7 @@
                             {% if forloop.counter == 1 %}
                                 <th></th>
                                 {% for item in row %}
-                                    <th style='min-width:80px' class='text-right'>
+                                    <th>
                                         {% if 'nan' not in item %}
                                             {{ item }}
                                         {% endif %}
@@ -78,7 +78,7 @@
                             {% else %}
                                 <td><b>{{ forloop.counter|add:'-2' }}</b></td>
                                 {% for item in row %}
-                                    <td style='min-width:80px'>
+                                    <td>
                                         {% if 'nan' not in item %}
                                             {{ item }}
                                         {% endif %}
