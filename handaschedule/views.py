@@ -18,7 +18,7 @@ DEFAULT_INFO = u''
 
 
 def b(link):
-    news = bs(requests.get(link).content, 'lxml').find('marquee')
+    news = bs(requests.get(link).content, 'html5lib').find('marquee')
     return [i for i in news.find_all('b') if TEXT_TO_FIND in i.text][0]
 
 
@@ -48,7 +48,6 @@ def index(request):
     dude_error = 0
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     local = os.path.join(BASE_DIR, 'handaschedule/schedule.xlsx')
-
     title = b(URL).text.strip()
     link = b(URL).find_next_sibling('a')['href'].strip()
     time = b(URL).find_previous_sibling('sup').text[1:-1]
