@@ -60,6 +60,7 @@ a:hover {
 .btn {
     margin-left: 5px;
     margin-right: 5px;
+    font-weight: normal
 }
 
 .btn-default {
@@ -73,7 +74,6 @@ a:hover {
 .table-responsive {
     overflow-x: scroll;
     margin-bottom: 10px;
-    direction: rtl;
 }
 
 .panel-heading {
