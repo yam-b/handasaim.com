@@ -18,7 +18,7 @@ DEFAULT_INFO = u''
 
 
 def b(link):
-    news = bs(requests.get(link).content, 'html5lib').find('marquee')
+    news = bs(requests.get(link).content, 'lxml').find('marquee')
     return [i for i in news.find_all('b') if TEXT_TO_FIND in i.text][0]
 
 
