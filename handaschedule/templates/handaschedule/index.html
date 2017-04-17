@@ -32,21 +32,19 @@
             <span style='font-weight:normal;color:#a1a4a5'>{{ time }}</span>
             <p style='font-weight:normal;color:initial'>{{ info }} </p>
         </div>
-        <span>
-            <div class='btn-group pull-left'>
-                <a class='btn btn-default btn-md' href='{{ url }}' style='font-weight:normal'>אתר הנדסאים</a>
-                <a id='test' class='btn btn-default btn-md disabled' style='cursor:not-allowed;font-weight:normal'>
-                    <span class='glyphicon glyphicon-triangle-bottom glyphicon-sm'></span>
+        <div class='btn-group pull-left'>
+            <a class='btn btn-default btn-md' href='{{ url }}' style='font-weight:normal'>לאתר</a>
+            <a id='test' class='btn btn-default btn-md disabled' style='cursor:not-allowed;font-weight:normal'>
+                <span class='glyphicon glyphicon-triangle-bottom glyphicon-sm'></span>
                 מבזקי
                 חדשות
-                </a>
-            </div>
-            {% if error %}
-                <a id='error' class='btn btn-success btn-md pull-left disabled'>הורדה</a>
-            {% else %}
-                <a href='{{ link }}' class='btn btn-success btn-md pull-left' download>הורדה</a>
-            {% endif %}
-        </span>
+            </a>
+        </div>
+        {% if error %}
+            <a id='error' class='btn btn-success btn-md pull-left disabled'>הורדה</a>
+        {% else %}
+            <a href='{{ link }}' class='btn btn-success btn-md pull-left' download>הורדה</a>
+        {% endif %}
     </div>
 </div>
 <div id='wrap'>
@@ -55,7 +53,7 @@
             <div class='alert alert-danger' style='direction:rtl'>
                 <button type='button' class='close pull-left' data-dismiss='alert'>&times;</button>
                 <strong>טוב, זה מביך...</strong><br>
-                לא נמצאה מערכת ב<a href='{{ url }}' class='alert-link' target='_blank'>אתר הנדסאים</a>.
+                לא נמצאה מערכת ב<a href='{{ url }}' class='alert-link' target='_blank'>אתר בית הספר</a>.
                 אם המערכת מופיעה באתר,
                 <a href='mailto:yamb@mail.tau.ac.il?Subject=יש%20בעיה' class='alert-link' style='text-decoration: none'><abbr
                         title='yamb@mail.tau.ac.il'>תודיעו לי</abbr></a>.
