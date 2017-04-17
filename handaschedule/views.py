@@ -65,7 +65,6 @@ def index(request):
         info = b(URL).next_sibling.strip()
     except:
         info = DEFAULT_INFO
-    local = os.path.join(BASE_DIR, 'handaschedule/schedule.xlsx')
     return render(request, 'handaschedule/index.html',
                   {'posts': posts, 'url': URL, 'title': title, 'info': info, 'link': link, 'time': time, 'table': table,
                    'error': dude_error})
