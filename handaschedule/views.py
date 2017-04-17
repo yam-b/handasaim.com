@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import datetime
 import os
 
 import pandas as pd
@@ -18,9 +19,7 @@ DEFAULT_INFO = u''
 
 
 def b(link):
-    response = requests.get(link)
-    html = response.content
-    news = bs(html, 'lxml').find('marquee')
+    news = bs(requests.get(link).content, 'lxml').find('marquee')
     return [i for i in news.find_all('b') if TEXT_TO_FIND in i.text][0]
 
 
@@ -50,12 +49,18 @@ def index(request):
     dude_error = 0
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     local = os.path.join(BASE_DIR, 'handaschedule/schedule.xlsx')
-    title = b(URL).text.strip()
-    link = b(URL).find_next_sibling('a')['href'].strip()
-    time = b(URL).find_previous_sibling('sup').text[1:-1]
-    time = time[:2] + u' ב' + to_heb_month(time[3:5])
-    table = to_table(link)  # ONLINE: to_table(link) OFFLINE: to_table(local)
-
+    try:
+        title = b(URL).text.strip()
+        link = b(URL).find_next_sibling('a')['href'].strip()
+        time = b(URL).find_previous_sibling('sup').text[1:-1]
+        time = time[:2] + u' ב' + to_heb_month(time[3:5])
+        table = to_table(link)  # ONLINE: to_table(link) OFFLINE: to_table(local)
+    except:
+        table = []
+        title = 'מערכת שעות'
+        link = '#'
+        time = datetime.date.today().strftime('%d ') + u'ב' + to_heb_month(datetime.date.today().strftime('%m'))
+        dude_error = 1
     try:
         info = b(URL).next_sibling.strip()
     except:
