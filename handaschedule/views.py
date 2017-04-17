@@ -54,7 +54,7 @@ def index(request):
         link = b(URL).find_next_sibling('a')['href'].strip()
         time = b(URL).find_previous_sibling('sup').text[1:-1]
         time = time[:2] + u' ב' + to_heb_month(time[3:5])
-        table = to_table(local)  # ONLINE: to_table(link) OFFLINE: to_table(local)
+        table = to_table(link)  # ONLINE: to_table(link) OFFLINE: to_table(local)
     except:
         table = []
         title = 'מערכת שעות'
