@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import datetime
 
 import pandas as pd
 import requests
@@ -42,18 +43,18 @@ def to_heb_month(month):
 def index(request):
     dude_error = 0
     # local = os.path.join(BASE_DIR, 'handaschedule/schedule.xlsx')
-    # try:
-    title = b(URL).text.strip()
-    link = b(URL).find_next_sibling('a')['href'].strip()
-    time = b(URL).find_previous_sibling('sup').text[1:-1]
-    time = time[:2] + u' ב' + to_heb_month(time[3:5])
-    table = to_table(link)  # ONLINE: to_table(link) OFFLINE: to_table(local)
-    # except:
-    #     table = []
-    #     title = 'מערכת שעות'
-    #     link = '#'
-    #     time = datetime.date.today().strftime('%d ') + u'ב' + to_heb_month(datetime.date.today().strftime('%m'))
-    #     dude_error = 1
+    try:
+        title = b(URL).text.strip()
+        link = b(URL).find_next_sibling('a')['href'].strip()
+        time = b(URL).find_previous_sibling('sup').text[1:-1]
+        time = time[:2] + u' ב' + to_heb_month(time[3:5])
+        table = to_table(link)  # ONLINE: to_table(link) OFFLINE: to_table(local)
+    except:
+        table = []
+        title = 'מערכת שעות'
+        link = '#'
+        time = datetime.date.today().strftime('%d ') + u'ב' + to_heb_month(datetime.date.today().strftime('%m'))
+        dude_error = 1
     try:
         info = b(URL).next_sibling.strip()
     except:
