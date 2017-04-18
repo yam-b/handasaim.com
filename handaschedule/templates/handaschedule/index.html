@@ -67,7 +67,7 @@
                             {% if forloop.counter == 1 %}
                                 <th></th>
                                 {% for item in row %}
-                                    <th>
+                                    <th class='text-right'>
                                         {% if 'nan' not in item %}
                                             {{ item }}
                                         {% endif %}
@@ -76,7 +76,7 @@
                             {% else %}
                                 <td><b>{{ forloop.counter|add:'-2' }}</b></td>
                                 {% for item in row %}
-                                    <td>
+                                    <td class='text-right'>
                                         {% if 'nan' not in item %}
                                             {{ item }}
                                         {% endif %}

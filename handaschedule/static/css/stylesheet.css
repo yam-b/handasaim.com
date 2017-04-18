@@ -49,8 +49,8 @@ a:hover {
     width: 100%;
 }
 
-td, th {
-    min-width: 80px;
+td.text-right, th.text-right {
+    min-width: 70px;
 }
 
 .glyphicon {
