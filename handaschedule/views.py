@@ -11,7 +11,7 @@ from django.utils import timezone
 from untitled.settings import BASE_DIR
 from .models import Post
 
-URL = 'http://handasaim.co.il'
+URL = 'http://www.handasaim.co.il'
 TEXT_TO_FIND = u'מערכת שעות'
 UP_CUT = 0
 LEFT_CUT = 1
