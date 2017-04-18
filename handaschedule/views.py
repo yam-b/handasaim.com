@@ -1,15 +1,10 @@
 # -*- coding: utf-8 -*-
 import datetime
-import os
 
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup as bs
 from django.shortcuts import render
-from django.utils import timezone
-
-from untitled.settings import BASE_DIR
-from .models import Post
 
 URL = 'http://www.handasaim.co.il'
 TEXT_TO_FIND = u'מערכת שעות'
@@ -47,8 +42,7 @@ def to_heb_month(month):
 
 def index(request):
     dude_error = 0
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    local = os.path.join(BASE_DIR, 'handaschedule/schedule.xlsx')
+    # local = os.path.join(BASE_DIR, 'handaschedule/schedule.xlsx')
     try:
         title = b(URL).text.strip()
         link = b(URL).find_next_sibling('a')['href'].strip()
@@ -66,5 +60,5 @@ def index(request):
     except:
         info = DEFAULT_INFO
     return render(request, 'handaschedule/index.html',
-                  {'posts': posts, 'url': URL, 'title': title, 'info': info, 'link': link, 'time': time, 'table': table,
+                  {'url': URL, 'title': title, 'info': info, 'link': link, 'time': time, 'table': table,
                    'error': dude_error})
