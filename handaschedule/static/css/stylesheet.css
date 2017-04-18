@@ -64,7 +64,7 @@ td, th {
 .btn {
     margin-left: 5px;
     margin-right: 5px;
-    font-weight: normal
+    font-weight: normal;
 }
 
 .btn-default {
@@ -84,9 +84,6 @@ td, th {
     background: #fafbfc none;
     margin-bottom: 10px;
     border-bottom-color: #e1e4e5;
-}
-
-.p-light {
 }
 
 .tooltip {
