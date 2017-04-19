@@ -39,9 +39,9 @@
     <div class='container'>
         <div style='display:inline-block'>
             <h4 style='display:inline;font-family:"Alef", sans-serif;'>
-                {% if error %}{{ title }}
+                {% if error %}<span title='אין מערכת'>{{ text }}</span>
                 {% else %}
-                    <a href='{{ link }}' target='_blank'>{{ title }}</a>
+                    <a href='{{ link }}' target='_blank' title='עודכנה לאחרונה ב{{ upload_time }}'>{{ text }}</a>
                 {% endif %}
             </h4>·
             <span style='font-weight:normal;color:#a1a4a5'>{{ time }}</span>
