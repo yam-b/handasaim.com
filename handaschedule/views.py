@@ -107,7 +107,8 @@ def index(request):
         list = news_list(URL)
     except:
         list = []
-    weekday = datetime.datetime.strptime(day + month + str(datetime.datetime.now().year), '%d%m%Y').now().strftime('%w')
+    weekday = datetime.datetime.strptime(day + month + str(datetime.datetime.now().year), '%d%m%Y').date().strftime(
+        '%w')
     time = u'יום ' + to_heb_day(weekday) + ', ' + day + u' ב' + to_heb_month(month)
     return render(request, 'handaschedule/index.html',
                   {'text': TEXT_TO_FIND, 'url': URL, 'title': title, 'info': description, 'link': link, 'time': time,
