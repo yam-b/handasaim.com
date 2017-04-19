@@ -19,6 +19,9 @@ body {
 #main {
     overflow: auto;
     padding-bottom: 150px;
+
+    overflow-x: scroll;
+    margin-bottom: 10px;
 }
 
 .footer {
@@ -83,10 +86,6 @@ td.text-right, th.text-right {
     border-color: #a1a4a8;
 }
 
-.table-responsive table {
-    overflow-x: scroll;
-    margin-bottom: 10px;
-}
 
 .panel-heading {
     background: #fafbfc none;
