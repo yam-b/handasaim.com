@@ -11,7 +11,7 @@ body {
     min-height: 100%;
 }
 
-.table-responsive table {
+.table-responsive {
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
 }
@@ -71,8 +71,7 @@ td.text-right, th.text-right {
 }
 
 .btn {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-right: 10px;
     font-weight: normal;
 }
 
