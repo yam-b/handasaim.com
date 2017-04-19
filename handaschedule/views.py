@@ -36,24 +36,34 @@ def to_heb_month(month):
         '09': u'ספטמבר',
         '10': u'אוקטובר',
         '11': u'נובמבר',
-        '12': u'דצמבר',
+        '12': u'דצמבר'
     }[month]
 
 
+def to_heb_day(day):
+    return {
+        '0': u'ראשון',
+        '1': u'שני',
+        '2': u'שלישי',
+        '3': u'רביעי',
+        '4': u'חמישי',
+        '5': u'שישי',
+        '6': u'שבת'
+    }[day]
 def index(request):
     error = 0
     # local = os.path.join(BASE_DIR, 'handaschedule/schedule.xlsx')
     try:
         title = b(URL).text.strip()
-        day = title[-5:-2]
+        day = title[-4:-2]
         month = '0' + title[-1]
         link = b(URL).find_next_sibling('a')['href'].strip()
         table = to_table(link)  # ONLINE: to_table(link) OFFLINE: to_table(local)
         upload_time = b(URL).find_previous_sibling('sup').text[1:-1]
         upload_time = upload_time[:2] + u' ב' + to_heb_month(upload_time[3:5])
     except:
-        title = 'מערכת שעות'
-        day = datetime.date.today().strftime('%d ')
+        title = 'אין מערכת'
+        day = datetime.date.today().strftime('%d')
         month = datetime.date.today().strftime('%m')
         link = '#'
         table = []
@@ -63,7 +73,8 @@ def index(request):
         info = b(URL).next_sibling.strip()
     except:
         info = DEFAULT_INFO
-    time = day + u' ב' + to_heb_month(month)
+    weekday = datetime.datetime.strptime(day + month + str(datetime.datetime.now().year), '%d%m%Y').now().strftime('%w')
+    time = u'יום ' + to_heb_day(weekday) + ', ' + day + u' ב' + to_heb_month(month)
     return render(request, 'handaschedule/index.html',
                   {'text': TEXT_TO_FIND, 'url': URL, 'title': title, 'info': info, 'link': link, 'time': time,
                    'upload_time': upload_time, 'table': table,
