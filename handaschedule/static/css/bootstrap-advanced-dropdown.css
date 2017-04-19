@@ -1,0 +1,277 @@
+.dropdown-menu, ul[class^="dropdown-"].scrollable:not(.dropdown-menu),
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) {
+    padding: 0;
+}
+
+.dropdown-menu:before, ul[class^="dropdown-"].scrollable:not(.dropdown-menu):before,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu):before {
+    border-left: none;
+    border-right: none;
+}
+
+.dropdown-menu small, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) small,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) small {
+    font-size: 10px;
+    float: right;
+    line-height: 20px;
+    display: block;
+}
+
+.dropdown-menu li:not(.header) + li:not(.header), ul[class^="dropdown-"].scrollable:not(.dropdown-menu) li:not(.header) + li:not(.header),
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) li:not(.header) + li:not(.header) {
+    border-top: 1px solid transparent;
+}
+
+.dropdown-menu > li:not(.footer):last-child, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li:not(.footer):last-child,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li:not(.footer):last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu > li:not(.footer) > a, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li:not(.footer) > a,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li:not(.footer) > a {
+    padding: 7px 20px;
+}
+
+.dropdown-menu > li:not(.footer) > a > i, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li:not(.footer) > a > i,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li:not(.footer) > a > i {
+    width: 20px;
+    text-align: center;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.dropdown-menu > li:not(.footer) > a > .badge,
+ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li:not(.footer) > a > .badge,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li:not(.footer) > a > .badge,
+.dropdown-menu > li:not(.footer) > a > .label, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li:not(.footer) > a > .label,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li:not(.footer) > a > .label {
+    float: right;
+    font-size: 11px;
+    padding: 2px 7px;
+    margin-top: 2px;
+}
+
+.dropdown-menu > li.header, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.header,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.header {
+    display: block;
+    overflow: hidden;
+    padding: 7px;
+    letter-spacing: 0.5px;
+}
+
+.dropdown-menu > li.header h1, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.header h1,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.header h1, .dropdown-menu > li.header h2, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.header h2,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.header h2, .dropdown-menu > li.header h3, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.header h3,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.header h3, .dropdown-menu > li.header h4, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.header h4,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.header h4, .dropdown-menu > li.header h5, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.header h5,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.header h5, .dropdown-menu > li.header h6, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.header h6,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.header h6 {
+    margin: 0;
+    padding: 0;
+    float: left;
+    font-size: 13px;
+    font-weight: normal;
+    display: inline-block;
+    font-family: inherit;
+}
+
+.dropdown-menu > li.header a, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.header a,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.header a {
+    display: inline-block;
+    padding: 0;
+    background: none;
+    clear: inherit;
+    font-size: 11px;
+    font-weight: 300;
+    position: absolute;
+    right: 10px;
+    border: 0;
+    margin-top: -1px;
+}
+
+.dropdown-menu > li.submenu, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu {
+    position: relative;
+}
+
+.dropdown-menu > li.submenu > a:after, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu > a:after,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu > a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-menu > li.submenu > .dropdown-menu, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu > .dropdown-menu,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu > .dropdown-menu, .dropdown-menu > li.submenu > ul[class^="dropdown-"].scrollable:not(.dropdown-menu), ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu > ul[class^="dropdown-"].scrollable:not(.dropdown-menu),
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu > ul[class^="dropdown-"].scrollable:not(.dropdown-menu), .dropdown-menu > li.submenu > ul[class*=" dropdown-"].scrollable:not(.dropdown-menu), ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu > ul[class*=" dropdown-"].scrollable:not(.dropdown-menu),
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu > ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) {
+    top: 0;
+    left: 100%;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.dropdown-menu > li.submenu:hover > .dropdown-menu, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu:hover > .dropdown-menu,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu:hover > .dropdown-menu, .dropdown-menu > li.submenu:hover > ul[class^="dropdown-"].scrollable:not(.dropdown-menu), ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu:hover > ul[class^="dropdown-"].scrollable:not(.dropdown-menu),
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu:hover > ul[class^="dropdown-"].scrollable:not(.dropdown-menu), .dropdown-menu > li.submenu:hover > ul[class*=" dropdown-"].scrollable:not(.dropdown-menu), ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu:hover > ul[class*=" dropdown-"].scrollable:not(.dropdown-menu),
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu:hover > ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) {
+    display: block;
+}
+
+.dropdown-menu > li.submenu.pull-left, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.pull-left,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.pull-left {
+    float: none;
+}
+
+.dropdown-menu > li.submenu.pull-left > .dropdown-menu, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.pull-left > .dropdown-menu,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.pull-left > .dropdown-menu, .dropdown-menu > li.submenu.pull-left > ul[class^="dropdown-"].scrollable:not(.dropdown-menu), ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.pull-left > ul[class^="dropdown-"].scrollable:not(.dropdown-menu),
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.pull-left > ul[class^="dropdown-"].scrollable:not(.dropdown-menu), .dropdown-menu > li.submenu.pull-left > ul[class*=" dropdown-"].scrollable:not(.dropdown-menu), ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.pull-left > ul[class*=" dropdown-"].scrollable:not(.dropdown-menu),
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.pull-left > ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) {
+    left: -100%;
+    margin-left: 10px;
+}
+
+.dropdown-menu > li.submenu.submenu-left > .dropdown-menu, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.submenu-left > .dropdown-menu,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.submenu-left > .dropdown-menu, .dropdown-menu > li.submenu.submenu-left > ul[class^="dropdown-"].scrollable:not(.dropdown-menu), ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.submenu-left > ul[class^="dropdown-"].scrollable:not(.dropdown-menu),
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.submenu-left > ul[class^="dropdown-"].scrollable:not(.dropdown-menu), .dropdown-menu > li.submenu.submenu-left > ul[class*=" dropdown-"].scrollable:not(.dropdown-menu), ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.submenu-left > ul[class*=" dropdown-"].scrollable:not(.dropdown-menu),
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.submenu.submenu-left > ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) {
+    left: -100%;
+    right: 100%;
+}
+
+.dropdown-menu > li.footer, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.footer,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.footer {
+    border-top: 1px solid transparent;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.dropdown-menu > li.footer a, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.footer a,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.footer a {
+    display: table-cell;
+    width: 2%;
+    text-align: center;
+    font-size: 12px;
+    padding: 3px;
+}
+
+.dropdown-menu > li.footer a + a, ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li.footer a + a,
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li.footer a + a {
+    border-left: 1px solid transparent;
+}
+
+.dropdown-notifications > li:not(.header):not(.footer) a {
+    padding: 10px 15px;
+    width: 100%;
+}
+
+.dropdown-notifications > li:not(.header):not(.footer) a:hover {
+    text-decoration: none;
+}
+
+.dropdown-notifications > li:not(.header):not(.footer) .ico {
+    float: left;
+    text-align: center;
+    width: 35px;
+    font-size: 20px;
+    padding: 5px 0;
+}
+
+.dropdown-notifications > li:not(.header):not(.footer) .details {
+    margin-left: 50px;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.dropdown-notifications > li:not(.header):not(.footer) .details .time {
+    display: block;
+    font-size: 11px;
+}
+
+.dropdown-notifications > li:not(.header):not(.footer):before,
+.dropdown-notifications > li:not(.header):not(.footer):after {
+    content: " ";
+    display: table;
+}
+
+.dropdown-notifications > li:not(.header):not(.footer):after {
+    clear: both;
+}
+
+.dropdown-task-list > li.header + li:not(.header) {
+    margin-top: 0 !important;
+}
+
+.dropdown-task-list > li:not(.header) + li.header {
+    margin-top: 0 !important;
+}
+
+.dropdown-task-list > li:not(.header):not(.footer) a {
+    display: block;
+    padding: 5px 15px;
+}
+
+.dropdown-task-list > li:not(.header):not(.footer) a:hover {
+    text-decoration: none;
+}
+
+.dropdown-task-list > li:not(.header):not(.footer) .task {
+    font-size: 12px;
+    padding: 5px 0 10px 0;
+    height: 20px;
+}
+
+.dropdown-task-list > li:not(.header):not(.footer) .task > span:first-child {
+    float: left;
+    display: block;
+    overflow: hidden;
+    width: 80%;
+}
+
+.dropdown-task-list > li:not(.header):not(.footer) .task > span:last-child {
+    float: right;
+    display: block;
+}
+
+.dropdown-task-list > li:not(.header):not(.footer) .progress {
+    clear: left;
+    margin: 10px 0;
+    height: 8px;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.dropdown-task-list > li:not(.header):not(.footer) .progress .progress-bar {
+    box-shadow: none;
+}
+
+ul[class^="dropdown-"].scrollable:not(.dropdown-menu),
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) {
+    display: block;
+    z-index: 80;
+    top: 0;
+    left: 0;
+    padding-left: 0;
+    list-style: none;
+    border: none;
+    box-shadow: none;
+    width: 100% !important;
+}
+
+ul[class^="dropdown-"].scrollable:not(.dropdown-menu) > li:not(.header) + li:not(.header),
+ul[class*=" dropdown-"].scrollable:not(.dropdown-menu) > li:not(.header) + li:not(.header) {
+    border-top: 1px solid transparent;
+}
+
+.dropdown-menu.dropdown-menu-wide, ul.dropdown-menu-wide[class^="dropdown-"].scrollable:not(.dropdown-menu),
+ul.dropdown-menu-wide[class*=" dropdown-"].scrollable:not(.dropdown-menu) {
+    min-width: 300px !important;
+}

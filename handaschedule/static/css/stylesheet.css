@@ -48,6 +48,15 @@ td.text-right, th.text-right {
     min-width: 70px;
 }
 
+.dropdown-submenu ul {
+    display: none
+}
+
+.dropdown-submenu:hover ul {
+    display: block;
+    position: relative
+}
+
 .glyphicon {
     vertical-align: middle;
 }
