@@ -70,7 +70,7 @@ td.text-right, th.text-right {
     font-size: 60%;
 }
 
-.btn {
+.btn, .btn-group {
     margin-right: 10px;
     font-weight: normal;
 }
@@ -83,7 +83,7 @@ td.text-right, th.text-right {
     border-color: #a1a4a8;
 }
 
-.table-responsive {
+.table-responsive table {
     overflow-x: scroll;
     margin-bottom: 10px;
 }
