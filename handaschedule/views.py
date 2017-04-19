@@ -65,6 +65,6 @@ def index(request):
         info = DEFAULT_INFO
     time = day + u' ב' + to_heb_month(month)
     return render(request, 'handaschedule/index.html',
-                  {'url': URL, 'title': title, 'info': info, 'link': link, 'time': time,
+                  {'text': TEXT_TO_FIND, 'url': URL, 'title': title, 'info': info, 'link': link, 'time': time,
                    'upload_time': upload_time, 'table': table,
                    'error': error})
