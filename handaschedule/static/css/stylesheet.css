@@ -9,6 +9,9 @@ body {
 
 #wrap {
     min-height: 100%;
+}
+
+.table-responsive table {
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
 }
