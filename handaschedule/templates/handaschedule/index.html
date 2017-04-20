@@ -86,7 +86,6 @@
         {% endif %}
     </div>
 </div>
-<div id='wrap'>
     <div id='main' class='container'>
         <div class='alert alert-info' style='direction:rtl'>
             <button type='button' class='close pull-left' data-dismiss='alert'>&times;</button>
@@ -104,7 +103,7 @@
             <h1 class='text-center' dir='ltr'>¯\_(ツ)_/¯</h1>
         {% else %}
             <div class='table-responsive'>
-                <table class='table table-hover' style='table-layout: fixed'>
+                <table class='table table-hover'>
                     {% for row in table %}
                         <tr>
                             {% if forloop.counter0 %}
@@ -124,9 +123,9 @@
                                     {% endautoescape %}
                                 {% endfor %}
                             {% else %}
-                                <th style='width:20px'></th>
+                                <th></th>
                                 {% for item in row %}
-                                    <th class='text-right' style='width: 140px'>
+                                    <th class='text-right'>
                                         {% if 'nan' not in item %}
                                             {{ item }}
                                         {% endif %}
@@ -139,7 +138,6 @@
             </div>
         {% endif %}
     </div>
-</div>
 {% for item in news_list %}
     <p>{{ item.date }}</p>
     <p>{{ item.title }}</p>
