@@ -86,65 +86,60 @@
         {% endif %}
     </div>
 </div>
-    <div id='main' class='container'>
-        <div class='alert alert-info' style='direction:rtl'>
-            <button type='button' class='close pull-left' data-dismiss='alert'>&times;</button>
-            <strong>שימו לב: </strong>בימים אלה האתר בשלבי פיתוח ולכן עובד יותר טוב במחשב. תודה על הסבלנות!
-        </div>
-        {% if error %}
-            <div class='alert alert-danger' style='direction:rtl'>
-                <button type='button' class='close pull-left' data-dismiss='alert'>&times;</button>
-                <strong>טוב, זה מביך...</strong><br>
-                לא נמצאה מערכת ב<a href='{{ url }}' class='alert-link' target='_blank'>אתר בית הספר</a>.
-                אם המערכת מופיעה באתר,
-                <a href='mailto:yamb@mail.tau.ac.il?Subject=יש%20בעיה' class='alert-link' style='text-decoration: none'><abbr
-                        title='yamb@mail.tau.ac.il'>תודיעו לי</abbr></a>.
-            </div>
-            <h1 class='text-center' dir='ltr'>¯\_(ツ)_/¯</h1>
-        {% else %}
-            <div class='table-responsive'>
-                <table class='table table-hover'>
-                    {% for row in table %}
-                        <tr>
-                            {% if forloop.counter0 %}
-                                {% for item in row %}
-                                    {% autoescape on %}
-                                        {% if forloop.counter0 %}
-                                            <td class='text-right'>
-                                                {% if 'nan' not in item %}
-                                                    {{ item }}
-                                                {% endif %}
-                                            </td>
-                                        {% else %}
-                                            <td class='text-left'>
-                                                {{ item|safe }}
-                                            </td>
-                                        {% endif %}
-                                    {% endautoescape %}
-                                {% endfor %}
-                            {% else %}
-                                <th></th>
-                                {% for item in row %}
-                                    <th class='text-right'>
-                                        {% if 'nan' not in item %}
-                                            {{ item }}
-                                        {% endif %}
-                                    </th>
-                                {% endfor %}
-                            {% endif %}
-                        </tr>
-                    {% endfor %}
-                </table>
-            </div>
-        {% endif %}
+<div id='main' class='container' style='overflow-x: hidden'>
+    <div class='alert alert-info'>
+        <button type='button' class='close pull-left' data-dismiss='alert'>&times;</button>
+        <strong>שימו לב: </strong>בימים אלה האתר בשלבי פיתוח ולכן עובד יותר טוב במחשב. תודה על הסבלנות!
     </div>
-{% for item in news_list %}
-    <p>{{ item.date }}</p>
-    <p>{{ item.title }}</p>
-    <p>{{ item.link }}</p>
-    <p>{{ item.description }}</p>
-{% endfor %}
-<footer class='footer text-center' dir='ltr'>
+    {% if error %}
+        <div class='alert alert-danger' style='direction:rtl'>
+            <button type='button' class='close pull-left' data-dismiss='alert'>&times;</button>
+            <strong>טוב, זה מביך...</strong><br>
+            לא נמצאה מערכת ב<a href='{{ url }}' class='alert-link' target='_blank'>אתר בית הספר</a>.
+            אם המערכת מופיעה באתר,
+            <a href='mailto:yamb@mail.tau.ac.il?Subject=יש%20בעיה' class='alert-link'
+               style='text-decoration: none'><abbr
+                    title='yamb@mail.tau.ac.il'>תודיעו לי</abbr></a>.
+        </div>
+        <h1 class='text-center' dir='ltr'>¯\_(ツ)_/¯</h1>
+    {% else %}
+        <div class='table-responsive'>
+            <table class='table table-hover'>
+                {% for row in table %}
+                    <tr>
+                        {% if forloop.counter0 %}
+                            {% for item in row %}
+                                {% autoescape on %}
+                                    {% if forloop.counter0 %}
+                                        <td class='text-right'>
+                                            {% if 'nan' not in item %}
+                                                {{ item }}
+                                            {% endif %}
+                                        </td>
+                                    {% else %}
+                                        <td class='text-left'>
+                                            {{ item|safe }}
+                                        </td>
+                                    {% endif %}
+                                {% endautoescape %}
+                            {% endfor %}
+                        {% else %}
+                            <th></th>
+                            {% for item in row %}
+                                <th class='text-right'>
+                                    {% if 'nan' not in item %}
+                                        {{ item }}
+                                    {% endif %}
+                                </th>
+                            {% endfor %}
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endif %}
+</div>
+<footer class='footer text-center' dir='ltr' style='margin-top:-100px; padding-top:120px; height:2px'>
     <a class='github-button' href='https://github.com/yam-b/handasaim.com/issues'
        data-icon='octicon-issue-opened'
        data-style='mega' aria-label='Issue yam-b/handasaim.com on GitHub'> Report a bug</a>

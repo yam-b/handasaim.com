@@ -5,23 +5,7 @@ html, body {
 body {
     font-family: 'Alef', sans-serif;
     padding-top: 67px;
-}
-
-#wrap {
-    min-height: 100%;
-}
-
-#main {
-    overflow: auto;
-    padding-bottom: 150px;
-}
-
-.footer {
-    position: relative;
-    margin-top: -150px;
-    height: 150px;
-    clear: both;
-    padding-top: 20px;
+    overflow-x: hidden;
 }
 
 @media screen and (max-width: 668px) {
