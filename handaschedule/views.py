@@ -50,7 +50,8 @@ def news_list(url):
 
 def to_table(url):
     sheet = pd.ExcelFile(url).parse(0)
-    return [(['<b>{}</b>'.format(i - 1)] if i else []) + list(sheet.iloc[i, LEFT_CUT:]) for i in
+    return [(['<small style="color:#a1a4a5">{}</small><br><b>{}</b><br><small style="color:#a1a4a5">{}</small>'.format(
+        school_time(i - 1)[0], i - 1, school_time(i - 1)[1])] if i else []) + list(sheet.iloc[i, LEFT_CUT:]) for i in
             range(UP_CUT, len(sheet.index))]
 
 
@@ -81,6 +82,24 @@ def to_heb_day(day):
         '5': u'שישי',
         '6': u'שבת'
     }[day]
+
+
+def school_time(time):
+    return {
+        0: ['07:45', '8:30'],
+        1: ['8:30', '9:15'],
+        2: ['9:15', '10:00'],
+        3: ['10:15', '11:00'],
+        4: ['11:00', '11:45'],
+        5: ['12:10', '12:55'],
+        6: ['12:55', '13:40'],
+        7: ['13:50', '14:35'],
+        8: ['14:35', '15:25'],
+        9: ['15:30', '16:15'],
+        10: ['16:15', '17:00'],
+        11: ['17:00', '17:45'],
+        12: ['17:45', '18:30']
+    }[time]
 
 
 def index(request):
