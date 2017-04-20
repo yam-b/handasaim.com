@@ -52,10 +52,6 @@ body {
     width: 100%;
 }
 
-td.text-right, th.text-right {
-    min-width: 70px;
-}
-
 .dropdown-submenu ul {
     display: none
 }
@@ -85,7 +81,6 @@ td.text-right, th.text-right {
 .btn-default:hover, .btn-default:focus {
     border-color: #a1a4a8;
 }
-
 
 .panel-heading {
     background: #fafbfc none;

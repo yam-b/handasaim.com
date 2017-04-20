@@ -47,9 +47,12 @@ def news_list(url):
         if a: list.append([dictionary])
     return list
 
+
 def to_table(url):
     sheet = pd.ExcelFile(url).parse(0)
-    return [sheet.iloc[i, LEFT_CUT:] for i in range(UP_CUT, len(sheet.index))]
+    return [(['<b>{}</b>'.format(i - 1)] if i else []) + list(sheet.iloc[i, LEFT_CUT:]) for i in
+            range(UP_CUT, len(sheet.index))]
+
 
 def to_heb_month(month):
     return {
@@ -110,6 +113,7 @@ def index(request):
     weekday = datetime.datetime.strptime(day + month + str(datetime.datetime.now().year), '%d%m%Y').date().strftime(
         '%w')
     time = u'יום ' + to_heb_day(weekday) + ', ' + day + u' ב' + to_heb_month(month)
+    lst = [i for i in range(5, 100)]
     return render(request, 'handaschedule/index.html',
                   {'text': TEXT_TO_FIND, 'url': URL, 'title': title, 'info': description, 'link': link, 'time': time,
                    'date': date, 'table': table,

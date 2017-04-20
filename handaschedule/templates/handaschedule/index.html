@@ -104,26 +104,33 @@
             <h1 class='text-center' dir='ltr'>¯\_(ツ)_/¯</h1>
         {% else %}
             <div class='table-responsive'>
-                <table class='table table-hover'>
+                <table class='table table-hover' style='table-layout: fixed'>
                     {% for row in table %}
                         <tr>
-                            {% if forloop.counter == 1 %}
-                                <th></th>
+                            {% if forloop.counter0 %}
                                 {% for item in row %}
-                                    <th class='text-right'>
+                                    {% autoescape on %}
+                                        {% if forloop.counter0 %}
+                                            <td class='text-right'>
+                                                {% if 'nan' not in item %}
+                                                    {{ item }}
+                                                {% endif %}
+                                            </td>
+                                        {% else %}
+                                            <td class='text-left'>
+                                                {{ item|safe }}
+                                            </td>
+                                        {% endif %}
+                                    {% endautoescape %}
+                                {% endfor %}
+                            {% else %}
+                                <th style='width:20px'></th>
+                                {% for item in row %}
+                                    <th class='text-right' style='width: 140px'>
                                         {% if 'nan' not in item %}
                                             {{ item }}
                                         {% endif %}
                                     </th>
-                                {% endfor %}
-                            {% else %}
-                                <td><b>{{ forloop.counter|add:'-2' }}</b></td>
-                                {% for item in row %}
-                                    <td class='text-right'>
-                                        {% if 'nan' not in item %}
-                                            {{ item }}
-                                        {% endif %}
-                                    </td>
                                 {% endfor %}
                             {% endif %}
                         </tr>
