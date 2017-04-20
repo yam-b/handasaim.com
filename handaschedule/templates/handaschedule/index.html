@@ -63,11 +63,11 @@
                     {% for news_item in date_grouped_news %}
                         {% if news_item.description %}
                             <li class='submenu'>
-                                <a href='#' tabindex='-1' data-toggle='dropdown'><span
+                                <a href='{{ news_item.link }}' tabindex='-1'><span
                                         style='color:#aaaaaa'>({{ news_item.date }}) </span>{{ news_item.title }}</a>
                                 <ul class='dropdown-menu'>
                                     <li>
-                                        <a href='{{ news_item.link }}'>{{ news_item.description }}</a>
+                                        <a style='cursor:not-allowed'>{{ news_item.description }}</a>
                                     </li>
                                 </ul>
                             </li>
