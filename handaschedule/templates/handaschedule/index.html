@@ -112,9 +112,7 @@
                                 {% autoescape on %}
                                     {% if forloop.counter0 %}
                                         <td class='text-right'>
-                                            {% if 'nan' not in item %}
-                                                {{ item }}
-                                            {% endif %}
+                                            {{ item }}
                                         </td>
                                     {% else %}
                                         <td class='text-center'>
@@ -127,9 +125,7 @@
                             <th></th>
                             {% for item in row %}
                                 <th class='text-right'>
-                                    {% if 'nan' not in item %}
-                                        {{ item }}
-                                    {% endif %}
+                                    {{ item }}
                                 </th>
                             {% endfor %}
                         {% endif %}
