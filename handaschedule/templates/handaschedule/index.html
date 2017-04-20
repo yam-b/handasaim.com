@@ -80,9 +80,11 @@
             </ul>
         </div>
         {% if error %}
-            <a id='error' class='btn btn-success btn-md pull-left disabled'>הורדה</a>
+            <a id='error' class='btn btn-primary btn-md pull-left disabled'><span
+                    class='glyphicon glyphicon-download-alt'></span></a>
         {% else %}
-            <a href='{{ link }}' class='btn btn-success btn-md pull-left' download>הורדה</a>
+            <a href='{{ link }}' class='btn btn-primary btn-md pull-left' download><span
+                    class='glyphicon glyphicon-download-alt'></span></a>
         {% endif %}
     </div>
 </div>
