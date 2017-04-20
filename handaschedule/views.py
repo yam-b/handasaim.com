@@ -48,25 +48,27 @@ def news_list(url):
     return list
 
 
-def column_to_list(index, s):
-    column = s.iloc[index + 1, LEFT_CUT:]
+def column(c, s):
+    column = s.iloc[c, LEFT_CUT:]
     lst = []
-    a = 0
+    is_empty = 1
     for i in column:
         if pd.isnull(i):
             i = ''
         else:
-            a = 1
+            is_empty = 0
         lst.append(i)
     html_entities = '<small style="color:#a1a4a5">{}</small><br><b>{}</b><br><small style="color:#a1a4a5">{}</small>'
-    if index + 1:
-        lst = [html_entities.format(school_time(index)[0], index, school_time(index)[1])] + lst
+    if c:
+        c -= 1
+        lst = [html_entities.format(school_time(c)[0], c, school_time(c)[1])] + lst
+    if is_empty: return []
     return lst
 
 
 def to_table(url):
     sheet = pd.ExcelFile(url).parse(0)
-    return [column_to_list(i, sheet) for i in range(UP_CUT - 1, len(sheet.index) - 1)]
+    return [column(i, sheet) for i in range(UP_CUT, len(sheet.index))]
 
 
 def to_heb_month(month):
