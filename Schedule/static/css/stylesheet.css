@@ -20,13 +20,13 @@ body {
     border-collapse: collapse;
     margin-bottom: 0;
     width: 100%;
-    background-color: white
+    background-color: white;
 }
 
 .table > thead:first-child > tr:first-child > th:first-child, .table > tbody > tr > td:first-child {
     position: absolute;
     display: inline-block;
-    background-color: white
+    background-color: white;
 }
 
 .table > thead:first-child > tr:hover:first-child > th:first-child, .table > tbody > tr:hover > td:first-child, .table tr:hover {
