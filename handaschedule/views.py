@@ -118,7 +118,7 @@ def school_time(time):
     }[time]
 
 
-def index(request):
+def schedule_info(url, text):
     error = 0
     try:
         title = b(URL).text.strip()
@@ -147,8 +147,14 @@ def index(request):
     weekday = datetime.datetime.strptime(day + month + str(datetime.datetime.now().year), '%d%m%Y').date().strftime(
         '%w')
     time = u'יום ' + to_heb_day(weekday) + ', ' + day + u' ב' + to_heb_month(month)
-    lst = [i for i in range(5, 100)]
-    return render(request, 'handaschedule/index.html',
-                  {'text': TEXT_TO_FIND, 'url': URL, 'title': title, 'info': description, 'link': link, 'time': time,
-                   'date': date, 'table': table,
-                   'error': error, 'news_list': list})
+    return {'text': text, 'url': url, 'title': title, 'info': description, 'link': link, 'time': time,
+            'date': date, 'table': table,
+            'error': error, 'news_list': list}
+
+
+def index(request):
+    return render(request, 'handaschedule/index.html', schedule_info(URL, TEXT_TO_FIND))
+
+
+def luz(request):
+    return render(request, 'handaschedule/luz.html')
