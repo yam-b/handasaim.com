@@ -1,0 +1,48 @@
+{% extends 'Schedule/base.html' %}
+{% block content %}
+{% if error %}
+<div class='alert alert-danger' style='direction:rtl'>
+    <button type='button' class='close pull-left' data-dismiss='alert'>&times;</button>
+    <strong>טוב, זה מביך...</strong><br>
+    לא נמצאה מערכת ב<a href='{{ url }}' class='alert-link' target='_blank'>אתר בית הספר</a>.
+    אם המערכת מופיעה באתר,
+    <a href='mailto:yamb@mail.tau.ac.il?Subject=יש%20בעיה' class='alert-link'
+       style='text-decoration: none'><abbr
+            title='yamb@mail.tau.ac.il'>תודיעו לי</abbr></a>.
+</div>
+<h1 class='text-center' dir='ltr'>¯\_(ツ)_/¯</h1>
+{% else %}
+<div class='wrapper'>
+    <div class='table-responsive scroller' style='overflow: auto'>
+        <table class='table table-hover genius'>
+            {% for row in table %}
+            <tr>
+                {% if forloop.counter0 %}
+                {% for item in row %}
+                {% autoescape on %}
+                {% if forloop.counter0 %}
+                <td class='text-right'>
+                    {{ item }}
+                </td>
+                {% else %}
+                <td class='text-center'>
+                    {{ item|safe }}
+                </td>
+                {% endif %}
+                {% endautoescape %}
+                {% endfor %}
+                {% else %}
+                <th class='text-center'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                {% for item in row %}
+                <th class='text-right'>
+                    {{ item }}
+                </th>
+                {% endfor %}
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
