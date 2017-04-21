@@ -120,7 +120,6 @@ def school_time(time):
 
 def index(request):
     error = 0
-    # local = os.path.join(BASE_DIR, 'handaschedule/schedule.xlsx')
     try:
         title = b(URL).text.strip()
         day = title[-4:-2]
