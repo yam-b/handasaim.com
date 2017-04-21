@@ -147,14 +147,20 @@ def schedule_info(url, text):
     weekday = datetime.datetime.strptime(day + month + str(datetime.datetime.now().year), '%d%m%Y').date().strftime(
         '%w')
     time = u'יום ' + to_heb_day(weekday) + ', ' + day + u' ב' + to_heb_month(month)
-    return {'text': text, 'url': url, 'title': title, 'info': description, 'link': link, 'time': time,
+    return {'headline_text': text, 'headline_link': link, 'url': url, 'title': title, 'info': description, 'link': link,
+            'time': time,
             'date': date, 'table': table,
             'error': error, 'news_list': list}
 
 
 def index(request):
-    return render(request, 'handaschedule/index.html', schedule_info(URL, TEXT_TO_FIND))
+    d = schedule_info(URL, TEXT_TO_FIND).copy()
+    d.update({'headline_link': 'luz', 'headline_text': 'לפי כיתה', 'headline_alt': 'מלאה'})
+    return render(request, 'Schedule/index.html', d)
 
 
 def luz(request):
-    return render(request, 'handaschedule/luz.html')
+    d = schedule_info(URL, TEXT_TO_FIND).copy()
+    d.update(
+        {'headline_link': 'javascript:window.location = "/";', 'headline_text': 'מלאה', 'headline_alt': 'לפי כיתה'})
+    return render(request, 'Schedule/luz.html', d)
