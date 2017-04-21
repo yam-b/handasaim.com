@@ -1,39 +1,35 @@
 {% extends 'Schedule/base.html' %}
 {% block content %}
-    <div>
-        <div class='text-center'>
-            <div>
-                <div class='btn-group'>
-                    <a class='btn btn-default btn-md' href='{{ url }}' style='font-weight:normal'>לאתר</a>
-                    <a class='btn btn-default btn-md dropdown-toggle' data-toggle='dropdown' style='font-weight:normal'>
-                        מבזקי
-                        חדשות
-                        <b class='caret'></b>
-                    </a>
-                    <ul role='menu' class='dropdown-menu'>
-                        {% for date_grouped_news in news_list %}
-                            {% for news_item in date_grouped_news %}
-                                {% if news_item.description %}
-                                    <li class='submenu'>
-                                        <a href='{{ news_item.link }}' tabindex='-1'><span
-                                                style='color:#aaaaaa'>({{ news_item.date }}) </span>{{ news_item.title }}
-                                        </a>
-                                        <ul class='dropdown-menu'>
-                                            <li>
-                                                <a style='cursor:not-allowed'>{{ news_item.description }}</a>
-                                            </li>
-                                        </ul>
+    <div class='text-center'>
+        <div class='btn-group'>
+            <a class='btn btn-default btn-md' href='{{ url }}' style='font-weight:normal'>לאתר</a>
+            <a class='btn btn-default btn-md dropdown-toggle' data-toggle='dropdown' style='font-weight:normal'>
+                מבזקי
+                חדשות
+                <b class='caret'></b>
+            </a>
+            <ul role='menu' class='dropdown-menu'>
+                {% for date_grouped_news in news_list %}
+                    {% for news_item in date_grouped_news %}
+                        {% if news_item.description %}
+                            <li class='submenu'>
+                                <a href='{{ news_item.link }}' tabindex='-1'><span
+                                        style='color:#aaaaaa'>({{ news_item.date }}) </span>{{ news_item.title }}
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li>
+                                        <a style='cursor:not-allowed'>{{ news_item.description }}</a>
                                     </li>
-                                {% else %}
-                                    <li><a href='{{ news_item.link }}' tabindex='-1'><span
-                                            style='color:#aaaaaa'>({{ news_item.date }}) </span>{{ news_item.title }}
-                                    </a></li>
-                                {% endif %}
-                            {% endfor %}
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li><a href='{{ news_item.link }}' tabindex='-1'><span
+                                    style='color:#aaaaaa'>({{ news_item.date }}) </span>{{ news_item.title }}
+                            </a></li>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </ul>
         </div>
     </div>
 {% endblock %}
