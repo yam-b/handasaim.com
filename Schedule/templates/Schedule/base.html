@@ -5,14 +5,11 @@
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <!--title>מערכת שעות {{ time|slice:':-3' }}</title-->
     <title>{{ title }} - Handasaim.com</title>
     <link type='text/css' rel='stylesheet' href='{% static 'css/bootstrap.css' %}'>
     <link type='text/css' rel='stylesheet' href='{% static 'css/stylesheet.css' %}'>
     <link type='text/css' rel='stylesheet' href='{% static 'css/bootstrap-advanced-dropdown.css' %}'>
     <link type='text/css' rel='stylesheet' href='{% static 'css/dropdown-theme-default.css' %}'>
-    <link type='text/css' rel='stylesheet' href='{% static 'css/bootstrap-toggle' %}'>
-    <!--link type='text/css' rel='stylesheet' href='{% static 'css/dropdowns-enhancement.css' %}'-->
     <link rel='icon' type='image/png' sizes='16x16' href='{% static 'favicon/favicon-16x16.png' %}'>
     <link rel='icon' type='image/png' sizes='96x96' href='{% static 'favicon/favicon-96x96.png' %}'>
     <link rel='icon' type='image/png' sizes='32x32' href='{% static 'favicon/favicon-32x32.png' %}'>
@@ -39,7 +36,7 @@
     <script type='text/javascript' src='{% static 'js/bootstrap-toggle.js' %}'></script>
 
 </head>
-<body dir='rtl' id='bootstrap-overrides' class='text-right' style='margin-bottom: 0px;padding-bottom: 0px'>
+<body dir='rtl' id='bootstrap-overrides' class='text-right' style='margin-bottom: 0px;padding-bottom: 0px; height:100%'>
 <div class='panel-heading navbar-fixed-top'>
     <div class='container'>
         <div style='display:inline-block'>
@@ -93,7 +90,8 @@
         {% endif %}
     </div>
 </div>
-<div id='main' class='container' style='overflow-x: hidden;margin-bottom:0px;padding-bottom: 0px'>
+<div id='main' class='container'
+     style='overflow-x:hidden;margin:{{ main_margin }};padding-bottom:0; height:{{ main_height }}'>
     <div class='alert alert-info'>
         <button type='button' class='close pull-left' data-dismiss='alert'>&times</button>
         <strong>שימו לב: </strong> בשלב זה האתר לא מסוגל לפענח את ההודעות הצהובות. אם יש לכם מבחן, מומלץ
@@ -101,6 +99,7 @@
     </div>
     {% block content %}
     {% endblock %}
+    <div id='push'></div>
 </div>
 <footer class='footer text-center' dir='ltr'
         style='margin-top:0px;padding-top:10px;margin-bottom:80px;height:2px;position:relative;clear:both'>
