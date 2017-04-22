@@ -5,6 +5,27 @@ $color_button_border_github: #cdcfd1
 $color_button_border_hover_github: #a1a4a8
 $color_heading_github: #fafbfc
 $color_heading_border_github: #e1e4e5
+$color_gravel_approx: #464a4c
+$color_shark_approx: #292b2c
+$color_black_haze_approx: #f7f7f9
+$color_gallery_approx: #eceeef
+$white: #fff
+$black_12_5: rgba(0, 0, 0, 0.125)
+$color_nevada_approx: #636c72
+$color_science_blue_approx: #0275d8
+$color_pattens_blue_approx: #daeeff
+$color_killarney_approx: #3c763d
+$color_willow_brook_approx: #dff0d8
+$color_tea_green_approx: #d0e9c6
+$color_calypso_approx: #31708f
+$color_link_water_approx: #d9edf7
+$color_tropical_blue_approx: #c4e3f3
+$color_pesto_approx: #8a6d3b
+$color_solitaire_approx: #fcf8e3
+$color_pipi_approx: #faf2cc
+$color_apple_blossom_approx: #a94442
+$color_vanilla_ice_approx: #f2dede
+$color_oyster_pink_approx: #ebcccc
 
 //fonts
 $font_heb: Alef
@@ -124,7 +145,9 @@ body
   background-color: #fff
   border: 1px solid rgba(0, 0, 0, 0.125)
   border-radius: 0.25rem
-
+  margin: 0 auto
+  float: none
+  margin-bottom: 10px
 .card-block
   -webkit-box-flex: 1
   -webkit-flex: 1 1 auto
@@ -348,3 +371,288 @@ body
       display: inline-block
       width: 100%
       margin-bottom: 0.75rem
+
+//@extend-elements
+//original selectors
+//.list-group-item-action:focus, .list-group-item-action:hover
+%extend_1
+  color: $color_gravel_approx
+  text-decoration: none
+  background-color: $color_black_haze_approx
+
+//original selectors
+//.list-group-item.disabled, .list-group-item:disabled
+%extend_2
+  color: $color_nevada_approx
+  cursor: not-allowed
+  background-color: $white
+
+//original selectors
+//a.list-group-item-success.active, button.list-group-item-success.active
+%extend_3
+  color: $white
+  background-color: $color_killarney_approx
+  border-color: $color_killarney_approx
+
+//original selectors
+//a.list-group-item-info.active, button.list-group-item-info.active
+%extend_4
+  color: $white
+  background-color: $color_calypso_approx
+  border-color: $color_calypso_approx
+
+//original selectors
+//a.list-group-item-warning.active, button.list-group-item-warning.active
+%extend_5
+  color: $white
+  background-color: $color_pesto_approx
+  border-color: $color_pesto_approx
+
+//original selectors
+//a.list-group-item-danger.active, button.list-group-item-danger.active
+%extend_6
+  color: $white
+  background-color: $color_apple_blossom_approx
+  border-color: $color_apple_blossom_approx
+
+.list-group
+  display: flex
+  flex-direction: column
+  padding-left: 0
+  margin-bottom: 0
+
+.list-group-item-action
+  width: 100%
+  color: $color_gravel_approx
+  text-align: inherit
+  .list-group-item-heading
+    color: $color_shark_approx
+
+  &:focus
+    @extend %extend_1
+
+  &:hover
+    @extend %extend_1
+
+  &:active
+    color: $color_shark_approx
+    background-color: $color_gallery_approx
+
+.list-group-item
+  position: relative
+  display: flex
+  flex-flow: row wrap
+  align-items: center
+  padding: 0.75rem 1.25rem
+  margin-bottom: -1px
+  background-color: $white
+  border: 1px solid $black_12_5
+  &:first-child
+    //If you use compass, instead of the line below you could use + border-top-right-radius($radius)
+    border-top-right-radius: 0.25rem
+    //If you use compass, instead of the line below you could use + border-top-left-radius($radius)
+    border-top-left-radius: 0.25rem
+
+  &:last-child
+    margin-bottom: 0
+    //If you use compass, instead of the line below you could use + border-bottom-right-radius($radius)
+    border-bottom-right-radius: 0.25rem
+    //If you use compass, instead of the line below you could use + border-bottom-left-radius($radius)
+    border-bottom-left-radius: 0.25rem
+
+  &:focus
+    text-decoration: none
+
+  &:hover
+    text-decoration: none
+
+  &.disabled
+    @extend %extend_2
+    .list-group-item-heading
+      color: inherit
+
+    .list-group-item-text
+      color: $color_nevada_approx
+
+  &:disabled
+    @extend %extend_2
+    .list-group-item-heading
+      color: inherit
+
+    .list-group-item-text
+      color: $color_nevada_approx
+
+  &.active
+    z-index: 2
+    color: $white
+    background-color: $color_science_blue_approx
+    border-color: $color_science_blue_approx
+    .list-group-item-heading
+      color: inherit
+      > small
+        color: inherit
+
+      > .small
+        color: inherit
+
+    .list-group-item-text
+      color: $color_pattens_blue_approx
+
+.list-group-flush
+  .list-group-item
+    border-right: 0
+    border-left: 0
+    //If you use compass, instead of the line below you could use + border-radius($radius, $vertical-radius)
+    border-radius: 0
+
+  &:first-child .list-group-item:first-child
+    border-top: 0
+
+  &:last-child .list-group-item:last-child
+    border-bottom: 0
+
+.list-group-item-success
+  color: $color_killarney_approx
+  background-color: $color_willow_brook_approx
+
+a
+  &.list-group-item-success
+    color: $color_killarney_approx
+    .list-group-item-heading
+      color: inherit
+
+    &:focus
+      color: $color_killarney_approx
+      background-color: $color_tea_green_approx
+
+    &:hover
+      color: $color_killarney_approx
+      background-color: $color_tea_green_approx
+
+    &.active
+      @extend %extend_3
+
+  &.list-group-item-info
+    color: $color_calypso_approx
+    .list-group-item-heading
+      color: inherit
+
+    &:focus
+      color: $color_calypso_approx
+      background-color: $color_tropical_blue_approx
+
+    &:hover
+      color: $color_calypso_approx
+      background-color: $color_tropical_blue_approx
+
+    &.active
+      @extend %extend_4
+
+  &.list-group-item-warning
+    color: $color_pesto_approx
+    .list-group-item-heading
+      color: inherit
+
+    &:focus
+      color: $color_pesto_approx
+      background-color: $color_pipi_approx
+
+    &:hover
+      color: $color_pesto_approx
+      background-color: $color_pipi_approx
+
+    &.active
+      @extend %extend_5
+
+  &.list-group-item-danger
+    color: $color_apple_blossom_approx
+    .list-group-item-heading
+      color: inherit
+
+    &:focus
+      color: $color_apple_blossom_approx
+      background-color: $color_oyster_pink_approx
+
+    &:hover
+      color: $color_apple_blossom_approx
+      background-color: $color_oyster_pink_approx
+
+    &.active
+      @extend %extend_6
+
+button
+  &.list-group-item-success
+    color: $color_killarney_approx
+    .list-group-item-heading
+      color: inherit
+
+    &:focus
+      color: $color_killarney_approx
+      background-color: $color_tea_green_approx
+
+    &:hover
+      color: $color_killarney_approx
+      background-color: $color_tea_green_approx
+
+    &.active
+      @extend %extend_3
+
+  &.list-group-item-info
+    color: $color_calypso_approx
+    .list-group-item-heading
+      color: inherit
+
+    &:focus
+      color: $color_calypso_approx
+      background-color: $color_tropical_blue_approx
+
+    &:hover
+      color: $color_calypso_approx
+      background-color: $color_tropical_blue_approx
+
+    &.active
+      @extend %extend_4
+
+  &.list-group-item-warning
+    color: $color_pesto_approx
+    .list-group-item-heading
+      color: inherit
+
+    &:focus
+      color: $color_pesto_approx
+      background-color: $color_pipi_approx
+
+    &:hover
+      color: $color_pesto_approx
+      background-color: $color_pipi_approx
+
+    &.active
+      @extend %extend_5
+
+  &.list-group-item-danger
+    color: $color_apple_blossom_approx
+    .list-group-item-heading
+      color: inherit
+
+    &:focus
+      color: $color_apple_blossom_approx
+      background-color: $color_oyster_pink_approx
+
+    &:hover
+      color: $color_apple_blossom_approx
+      background-color: $color_oyster_pink_approx
+
+    &.active
+      @extend %extend_6
+
+.list-group-item-info
+  color: $color_calypso_approx
+  background-color: $color_link_water_approx
+
+.list-group-item-warning
+  color: $color_pesto_approx
+  background-color: $color_solitaire_approx
+
+.list-group-item-danger
+  color: $color_apple_blossom_approx
+  background-color: $color_vanilla_ice_approx
