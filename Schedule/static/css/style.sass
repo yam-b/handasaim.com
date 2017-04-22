@@ -1,23 +1,22 @@
 //colors
-$color_sail_approx: #acd7fc
-$white: white
-$color_wild_sand_approx: rgb(245, 245, 245)
-$color_celeste_approx: #cdcfd1
-$color_shady_lady_approx: #a1a4a8
-$color_alabaster_approx: #fafbfc
-$color_mercury_approx: #e1e4e5
+$color_selection_mac: #acd7fc
+$color_hover_gray: rgb(245, 245, 245)
+$color_button_border_github: #cdcfd1
+$color_button_border_hover_github: #a1a4a8
+$color_heading_github: #fafbfc
+$color_heading_border_github: #e1e4e5
 
 //fonts
-$font_0: Alef
-$font_1: sans-serif
+$font_heb: Alef
+$font_type: sans-serif
 
 //@extend-elements
 //original selectors
 //.table >thead:first-child >tr:first-child >th:first-child, .table >tbody >tr >td:first-child
-%extend_1
+%table_sticky_column
   position: absolute
   display: inline-block
-  background-color: $white
+  background-color: white
 
 *
   margin: 0
@@ -27,7 +26,7 @@ html
 
 body
   height: 100%
-  font-family: $font_0, $font_1
+  font-family: $font_heb, $font_type
   overflow-x: hidden
 
 #main
@@ -39,7 +38,7 @@ body
   height: 100px
 
 ::selection
-  background: $color_sail_approx
+  background: $color_selection_mac
 
 .not-hebrew
 
@@ -47,23 +46,23 @@ body
   border-collapse: collapse
   margin-bottom: 0
   width: 100%
-  background-color: $white
+  background-color: white
   > thead:first-child > tr
     &:first-child > th:first-child
-      @extend %extend_1
+      @extend %table_sticky_column
 
     &:hover:first-child > th:first-child
-      background-color: $color_wild_sand_approx
+      background-color: $color_hover_gray
 
   > tbody > tr
     > td:first-child
-      @extend %extend_1
+      @extend %table_sticky_column
 
     &:hover > td:first-child
-      background-color: $color_wild_sand_approx
+      background-color: $color_hover_gray
 
   tr:hover
-    background-color: $color_wild_sand_approx
+    background-color: $color_hover_gray
 
 .dropdown-submenu
   ul
@@ -91,17 +90,17 @@ body
     margin-right: 0
 
 .btn-default
-  border-color: $color_celeste_approx
+  border-color: $color_button_border_github
   &:hover
-    border-color: $color_shady_lady_approx
+    border-color: $color_button_border_hover_github
 
   &:focus
-    border-color: $color_shady_lady_approx
+    border-color: $color_button_border_hover_github
 
 .panel-heading
-  background: $color_alabaster_approx none
+  background: $color_heading_github none
   margin-bottom: 10px
-  border-bottom-color: $color_mercury_approx
+  border-bottom-color: $color_heading_border_github
 
 .tooltip
   position: absolute
