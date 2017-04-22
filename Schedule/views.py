@@ -6,20 +6,16 @@ from luz import *
 from .forms import ClassPicker
 
 
-def form(request):
+def index(request):
     if request.method == 'POST':
         form = ClassPicker(request.POST)
         if form.is_valid():
             return HttpResponseRedirect('/thanks/')
     else:
         form = ClassPicker()
-    return form
-
-
-def index(request):
     d = schedule_info().copy()
     d.update({'headline_link': 'luz', 'headline_text': 'לפי כיתה', 'headline_alt': 'מלאה',
-              'main_margin': '0 auto -100px', 'main_height': '100%', 'form': form(request)})
+              'main_margin': '0 auto -100px', 'main_height': '100%', 'form': form})
     return render(request, 'Schedule/index.html', d)
 
 
