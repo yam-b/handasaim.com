@@ -1,18 +1,14 @@
 {% extends 'Schedule/base.html' %}
+{% load app_filters %}
 {% block content %}
     <div class='text-center'>
-        <select class='selectpicker' data-style='btn-default' data-width='auto' data-size='5' style='display:none'>
-            {% for item in table.0 %}
-                <option>
-                    <a href='#'>{{ item }}</a>
-                </option>
-            {% endfor %}
-        </select>
+        {% csrf_token %}
+        {{ form }}
         <div class='card' style='width:20rem' dir='ltr'>
             <ul class='list-group list-group-flush'>
-                <li class='list-group-item'>Item #1</li>
-                <li class='list-group-item'>Item #2</li>
-                <li class='list-group-item'>Item #3</li>
+                {% for i in table|column:2 %}
+                    <li class='list-group-item'>{{ i }}</li>
+                {% endfor %}
             </ul>
         </div>
     </div>

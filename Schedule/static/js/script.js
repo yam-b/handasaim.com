@@ -29,15 +29,6 @@ $('#error').on('mousemove', function (e) {
 $('#error').on('mouseleave', function (e) {
     $('[data-toggle="tooltip2"]').tooltip('hide')
 });
-
-window.onload = function () {
-    $('.selectpicker').selectpicker();
-
-    // scrollYou
-    $('.scrollMe .dropdown-menu').scrollyou();
-
-    prettyPrint();
-};
 /**
  * Created by yamya on 22/04/2017.
  */

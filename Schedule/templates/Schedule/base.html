@@ -121,5 +121,21 @@
 <i id='err-tooltip' class='tooltip' data-toggle='tooltip2' data-placement='right' title='אין מערכת'
    data-animation='false'
    data-trigger='manual'></i>
+<script>
+
+
+    $('select').change(function () {
+        alert($(this).children('option:selected').data('class'));
+    });
+
+    window.onload = function () {
+        $('.selectpicker').selectpicker();
+
+        // scrollYou
+        $('.scrollMe .dropdown-menu').scrollyou();
+
+        prettyPrint();
+    };
+</script>
 </body>
 </html>
