@@ -1,0 +1,112 @@
+//colors
+$color_sail_approx: #acd7fc
+$white: white
+$color_wild_sand_approx: rgb(245, 245, 245)
+$color_celeste_approx: #cdcfd1
+$color_shady_lady_approx: #a1a4a8
+$color_alabaster_approx: #fafbfc
+$color_mercury_approx: #e1e4e5
+
+//fonts
+$font_0: Alef
+$font_1: sans-serif
+
+//@extend-elements
+//original selectors
+//.table >thead:first-child >tr:first-child >th:first-child, .table >tbody >tr >td:first-child
+%extend_1
+  position: absolute
+  display: inline-block
+  background-color: $white
+
+*
+  margin: 0
+
+html
+  height: 100%
+
+body
+  height: 100%
+  font-family: $font_0, $font_1
+  overflow-x: hidden
+
+#main
+
+.footer
+  height: 100px
+
+.push
+  height: 100px
+
+::selection
+  background: $color_sail_approx
+
+.not-hebrew
+
+.table
+  border-collapse: collapse
+  margin-bottom: 0
+  width: 100%
+  background-color: $white
+  > thead:first-child > tr
+    &:first-child > th:first-child
+      @extend %extend_1
+
+    &:hover:first-child > th:first-child
+      background-color: $color_wild_sand_approx
+
+  > tbody > tr
+    > td:first-child
+      @extend %extend_1
+
+    &:hover > td:first-child
+      background-color: $color_wild_sand_approx
+
+  tr:hover
+    background-color: $color_wild_sand_approx
+
+.dropdown-submenu
+  ul
+    display: none
+
+  &:hover ul
+    display: block
+    position: relative
+
+.glyphicon
+  vertical-align: middle
+
+.glyphicon-sm
+  font-size: 60%
+
+.btn
+  margin-right: 10px
+  font-weight: normal
+
+.btn-group
+  margin-right: 10px
+  font-weight: normal
+  .btn
+    margin-left: 0
+    margin-right: 0
+
+.btn-default
+  border-color: $color_celeste_approx
+  &:hover
+    border-color: $color_shady_lady_approx
+
+  &:focus
+    border-color: $color_shady_lady_approx
+
+.panel-heading
+  background: $color_alabaster_approx none
+  margin-bottom: 10px
+  border-bottom-color: $color_mercury_approx
+
+.tooltip
+  position: absolute
+
+.dropdown-scrollable
+  height: auto
+  max-height: 100px
+  overflow-x: hidden
