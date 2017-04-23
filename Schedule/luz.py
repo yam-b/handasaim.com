@@ -31,27 +31,26 @@ HEB_MONTH = (
     u'אוקטובר',
     u'נובמבר',
     u'דצמבר')
+SCHOOL_TIME = (
+    ('7:45', '8:30'),
+    ('8:30', '9:15'),
+    ('9:15', '10:00'),
+    ('10:15', '11:00'),
+    ('11:00', '11:45'),
+    ('12:10', '12:55'),
+    ('12:55', '13:40'),
+    ('13:50', '14:35'),
+    ('14:35', '15:20'),
+    ('15:25', '16:10'),
+    ('16:10', '16:55'),
+    ('16:55', '17:40'),
+    ('17:40', '18:25'))
 
 
 def row(sheet, index, left_cut):
     row = sheet.iloc[index, left_cut:]
     lst = []
     is_empty = 1
-    school_time = (
-        ('7:45', '8:30'),
-        ('8:30', '9:15'),
-        ('9:15', '10:00'),
-        ('10:15', '11:00'),
-        ('11:00', '11:45'),
-        ('12:10', '12:55'),
-        ('12:55', '13:40'),
-        ('13:50', '14:35'),
-        ('14:35', '15:20'),
-        ('15:25', '16:10'),
-        ('16:10', '16:55'),
-        ('16:55', '17:40'),
-        ('17:40', '18:25')
-    )
     for i in row:
         if pd.isnull(i):
             i = ''
@@ -61,7 +60,7 @@ def row(sheet, index, left_cut):
     html_entities = '<small style="color:#a1a4a5">{}</small><br><b>{}</b><br><small style="color:#a1a4a5">{}</small>'
     if index:
         index -= 1
-        lst = [html_entities.format(school_time[index][0], index, school_time[index][1])] + lst
+        lst = [html_entities.format(SCHOOL_TIME[index][0], index, SCHOOL_TIME[index][1])] + lst
     if is_empty: return []
     return lst
 
