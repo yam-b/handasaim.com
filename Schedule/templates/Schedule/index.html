@@ -13,7 +13,8 @@
         <h1 class='text-center' dir='ltr'>¯\_(ツ)_/¯</h1>
     {% else %}
         <div class='wrapper text-center'>
-            <div class='table-responsive scroller' style='overflow:auto'>
+            <div class='table-responsive' id='scroller'
+                 style='overflow:auto; overflow-x:scroll;-webkit-overflow-scrolling: touch;overflow-scrolling:touch'>
                 <table class='table table-hover' style='margin-right:-33px'>
                     {% for row in table %}
                         <tr>
