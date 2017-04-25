@@ -34,9 +34,9 @@
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
     <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script type='text/javascript' src='{% static 'js/bootstrap-toggle.js' %}'></script>
-
+    <script type='text/javascript' src='{% static 'js/script.js' %}'></script>
 </head>
-<body dir='rtl' id='bootstrap-overrides' class='text-right' style='margin-bottom: 0px;padding-bottom: 0px; height:100%'>
+<body dir='rtl' id='main' class='text-right' style='margin-bottom: 0px;padding-bottom: 0px; height:100%'>
 <div class='panel-heading navbar-fixed-top'>
     <div class='container'>
         <div style='display:inline-block'>
@@ -47,9 +47,6 @@
                     <a href='{{ link }}' title='עודכנה לאחרונה ב{{ date }}'>מערכת שעות</a>
                 {% endif %}
             </h4>
-            <a class='btn btn-primary btn-xs' style='margin-right:0;margin-left:5px;padding-right:2px;padding-left:2px'
-               href='{{ headline_link }}'
-               title='מעבר לתצוגה {{ headline_alt }}'>{{ headline_text }}</a>
             <span style='font-weight:normal;color:#a1a4a5'>{{ time }}</span>
             <p style='font-weight:normal;color:initial'>{{ info }} </p>
         </div>
@@ -129,6 +126,9 @@
         m.parentNode.insertBefore(a, m)
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
+    <<<<<<<
+    Updated;
+    upstream;
     ga('create', 'UA-97745233-1', 'auto');
     ga('send', 'pageview')
 </script>

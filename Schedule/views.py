@@ -155,14 +155,22 @@ def schedule_info(url, text):
 
 def index(request):
     d = schedule_info(URL, TEXT_TO_FIND).copy()
-    d.update({'headline_link': 'luz', 'headline_text': 'לפי כיתה', 'headline_alt': 'מלאה',
-              'main_margin': '0 auto -100px', 'main_height': '100%'})
-    return render(request, 'Schedule/index.html', d)
-
-
-def luz(request):
-    d = schedule_info(URL, TEXT_TO_FIND).copy()
     d.update(
         {'headline_link': 'javascript:window.location = "/";', 'headline_text': 'מלאה', 'headline_alt': 'לפי כיתה',
          'main_margin': 'initial initial 0', 'main_height': 'auto'})
-    return render(request, 'Schedule/luz.html', d)
+    return render(request, 'Schedule/index.html', d)
+
+#
+# def index(request):
+#     d = schedule_info(URL, TEXT_TO_FIND).copy()
+#     d.update({'headline_link': 'luz', 'headline_text': 'לפי כיתה', 'headline_alt': 'מלאה',
+#               'main_margin': '0 auto -100px', 'main_height': '100%'})
+#     return render(request, 'Schedule/index.html', d)
+
+
+# def luz(request):
+#     d = schedule_info(URL, TEXT_TO_FIND).copy()
+#     d.update(
+#         {'headline_link': 'javascript:window.location = "/";', 'headline_text': 'מלאה', 'headline_alt': 'לפי כיתה',
+#          'main_margin': 'initial initial 0', 'main_height': 'auto'})
+#     return render(request, 'Schedule/luz.html', d)

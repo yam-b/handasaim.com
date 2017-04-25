@@ -5,7 +5,11 @@ html, body {
     height: 100%
 }
 
-#main {
+@media screen and (max-width: 668px) {
+    #main {
+        padding-top: 50px;
+    !important
+    }
 }
 
 .footer, .push {
@@ -87,12 +91,4 @@ body {
     margin-right: 0;
 }
 
-/*
 
-@media screen and (max-width: 668px) {
-    body {
-        padding-top: 110px;
-    }
-}
-
-*/
